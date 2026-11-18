@@ -102,13 +102,27 @@ non-decision-grade economics. `artifacts/adversarial_review.md` records the
 critique and revisions. The synthetic update in `data/new/` is intentionally
 designed to flag the decision for human review.
 
-**Costs and timing:** no matched ordinary-chat baseline, IDE model-token
-telemetry, provider invoice, or consistent end-to-end wall-clock measurement
-was available to the repository run. These figures are **not measured**, not
-zero, and are not estimated as facts. `artifacts/baseline/comparison.md` gives
-the reproducible protocol and metric fields; `artifacts/run_log.jsonl` records
-the missing measurements explicitly. Capture actual human time and model
-usage from the IDE/provider before submitting comparative speed/cost claims.
+**Measured local demo-tool phase:** on 2026-11-18, four deterministic CLI
+actions were rerun in Python 3.12: evidence validation, base economics,
+retention sensitivity, and decision recheck. They completed in **364 ms
+(0.365 s)** with **4 process/tool calls**, and all exited successfully.
+This measure excludes model reasoning, human checkpoints, IDE startup, source
+collection, and subagent review.
+
+**Ordinary-chat baseline:** no matched provider-backed chat run was available
+in this environment. Its wall time, model calls, provider token usage, and
+cost are therefore **not measured**, not represented as zero. The intended
+baseline is one ordinary chat request using the same demo brief and authorized
+source set, with no repository rules or scripts.
+
+**Text-volume estimate:** the selected demo inputs and resulting artifacts
+contain 38,662 UTF-8 characters (38,772 bytes), approximately 9,693 tokens
+by a 4-byte/character approximation. It is not provider-reported usage.
+
+**What is confirmed by the demo:** 6/6 factual strategy lines are source-linked,
+2 economic scenarios execute reproducibly, and 8 material findings are captured
+by adversarial review. `artifacts/baseline/comparison.md` records the exact
+paired-measurement protocol and honest limits.
 
 **Human involvement:** approved only as a fictional demonstration; real brief
 approval, source authorization, experiment design/power, product/terms/privacy
