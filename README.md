@@ -137,5 +137,6 @@ python scripts/cost_tracker.py compare --scenario-id demo
 
 - Полный отчёт по архитектуре и ограничениям: [`docs/SUBMISSION_REPORT.md`](docs/SUBMISSION_REPORT.md)
 - Сценарий видеодемонстрации до 10 минут: [`docs/DEMO_VIDEO_SCRIPT.md`](docs/DEMO_VIDEO_SCRIPT.md)
+- Английский отчёт и сценарий: [`docs/en/SUBMISSION_REPORT.md`](docs/en/SUBMISSION_REPORT.md), [`docs/en/DEMO_VIDEO_SCRIPT.md`](docs/en/DEMO_VIDEO_SCRIPT.md)
 - Журнал реального запуска: [`artifacts/run_log.jsonl`](artifacts/run_log.jsonl)
 - English version: [README.en.md](README.en.md)

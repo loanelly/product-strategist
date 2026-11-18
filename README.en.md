@@ -135,7 +135,7 @@ When a file is added under [`data/new/`](data/new/), either the hook or `recheck
 
 ## Submission documentation
 
-- Full architecture and limitation report: [`docs/SUBMISSION_REPORT.md`](docs/SUBMISSION_REPORT.md)
-- Demo video script under 10 minutes: [`docs/DEMO_VIDEO_SCRIPT.md`](docs/DEMO_VIDEO_SCRIPT.md)
+- Full architecture and limitation report: [`docs/en/SUBMISSION_REPORT.md`](docs/en/SUBMISSION_REPORT.md)
+- Demo video script under 10 minutes: [`docs/en/DEMO_VIDEO_SCRIPT.md`](docs/en/DEMO_VIDEO_SCRIPT.md)
 - Run journal: [`artifacts/run_log.jsonl`](artifacts/run_log.jsonl)
 - Russian version: [README.md](README.md)

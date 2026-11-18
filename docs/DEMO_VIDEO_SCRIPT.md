@@ -1,83 +1,92 @@
-# Demo video script (target: 8–9 minutes)
+**Язык:** Русский | [English](en/DEMO_VIDEO_SCRIPT.md)
 
-Record in Cursor or a compatible IDE that can show `AGENTS.md`, terminal
-commands, hook status, and a separate reviewer. Use the fictional project
-only. Do not show credentials, private customer data, or claim that this is a
-real MegaFon product.
+# Сценарий демонстрационного видео (целевой тайминг: 8–9 минут)
 
-## 0:00–0:45 — Introduce scope and safety
+Записывайте в Cursor или совместимой IDE, где видны
+[`AGENTS.md`](../AGENTS.md), терминал, статус hooks и отдельный reviewer.
+Используйте только fictional demo-проект. Не показывайте ключи, персональные
+данные, закрытые файлы или утверждения о реальном продукте МегаФона.
 
-Show `projects/demo/README.md` and say: “This is an invented cloud-storage
-product and synthetic cohort data. Only the linked Eurostat context is public,
-and it is not a comparable paid-conversion benchmark.”
+## 0:00–0:45 — Сфера и безопасность
 
-## 0:45–1:45 — Start at the request and workflow
+Откройте [`projects/demo/README.md`](../projects/demo/README.md) и скажите:
+«Это вымышленный сервис облачного хранения и синтетическая таблица когорт.
+Публичен только контекст Eurostat, который не является сопоставимым
+benchmark trial-to-paid конверсии».
 
-Show `projects/demo/brief.md`, then `AGENTS.md` and
-`skills/intake/SKILL.md`. In a new IDE chat, paste:
+## 0:45–1:45 — Запрос и workflow
+
+Покажите [`projects/demo/brief.md`](../projects/demo/brief.md), затем
+[`AGENTS.md`](../AGENTS.md) и
+[`skills/intake/SKILL.md`](../skills/intake/SKILL.md). В новом IDE-чате
+вставьте:
 
 > Read AGENTS.md and skills/intake/SKILL.md. Resume projects/demo from
 > state/workflow_state.json. Summarize the saved stage, next action, fictional
 > data boundary, and any human approval required. Do not repeat completed
 > stages or infer real customer demand.
 
-Show the stage and approval boundary. Explain that an actual project would
-pause for the product owner's brief approval before research.
+Покажите восстановленную контрольную точку и остановку на согласовании.
+Поясните, что реальный проект не начал бы исследование до одобрения брифа
+решающим человеком.
 
-## 1:45–3:00 — Inspect sources and evidence
+## 1:45–3:00 — Источники и evidence
 
-Show `data/source_manifest.json`, a source file's synthetic provenance, and
-`state/evidence_graph.json`. Run:
+Покажите [`data/source_manifest.json`](../data/source_manifest.json),
+один синтетический source-файл и
+[`state/evidence_graph.json`](../state/evidence_graph.json). Выполните:
 
 ```powershell
 python scripts/validate_evidence.py
 ```
 
-Explain that factual claims point to source IDs/locations and synthetic
-responses are not demand evidence.
+Объясните, что facts привязаны к source IDs и точным местам, а synthetic
+respondent-ответы не являются доказательством спроса.
 
-## 3:00–4:00 — Reproduce economics
+## 3:00–4:00 — Экономика
 
-Run:
+Выполните:
 
 ```powershell
 python scripts/calc_economics.py data/raw/demo/economics_input.json
 ```
 
-Show `artifacts/economics_result.json`. Explain it uses fictional inputs,
-undiscounted LTV, and excludes servicing cost and cannibalization.
+Покажите [`artifacts/economics_result.json`](../artifacts/economics_result.json).
+Объясните: данные вымышлены, LTV не дисконтирован и расчёт исключает
+service cost и cannibalization.
 
-## 4:00–5:00 — Compare options and recommendation
+## 4:00–5:00 — Варианты и рекомендация
 
-Show `artifacts/options.md` and `artifacts/strategy.md`. Point out keep-as-is,
-close, two distinct interventions, a conditional recommendation, product-truth
-checks, falsification criteria, and a permission-only test. State that the
-sample-size number is only a planning approximation pending real data and
-statistical review.
+Покажите [`artifacts/options.md`](../artifacts/options.md) и
+[`artifacts/strategy.md`](../artifacts/strategy.md). Назовите варианты
+«оставить как есть», «закрыть направление», изолированное clarification
+разрешений и отдельный terms/value-тест. Поясните human gates,
+falsification-критерии и что 13.5% является planning target, не forecast.
 
-## 5:00–6:00 — Independent challenge
+## 5:00–6:00 — Независимый скептик
 
-Show the separate `adversarial-reviewer` agent configuration and
-`artifacts/adversarial_review.md`. Explain it did not receive generation
-history; highlight how its challenge narrowed the test, qualified the
-economics, and made power/guardrail checks explicit.
+Покажите конфигурацию отдельного Adversarial Review и
+[`artifacts/adversarial_review.md`](../artifacts/adversarial_review.md).
+Объясните, что субагент не получил историю генерации: он сократил тест до
+permission-only intervention, усилил условия power analysis и не допустил
+публикации неподтверждённых product promises.
 
-## 6:00–7:00 — Stop and resume in a new chat
+## 6:00–7:00 — Остановка и продолжение в новом чате
 
-Show `state/workflow_state.json`. Start a fresh IDE chat and paste:
+Покажите [`state/workflow_state.json`](../state/workflow_state.json).
+Откройте новый IDE-чат и вставьте:
 
 > Read AGENTS.md, the relevant decision-followup skill, and
 > state/workflow_state.json. Continue from next_action only. Check for new
 > material and explain which decision, if any, requires human review. Do not
 > treat synthetic data as real or change an adopted decision without approval.
 
-Show the agent recovering stage 8 and pending human approval.
+Покажите восстановление этапа 8 и ожидание human approval.
 
-## 7:00–8:15 — Demonstrate a new-data recheck
+## 7:00–8:15 — Пересмотр по новым данным
 
-The committed demo already has the synthetic fixture registered as processed
-and `DEMO-D-001` flagged for review. To show a clean before/after without
-changing the repository's final state, use a temporary registry copy:
+В демо уже подготовлен fixture с 78% retention и решение помечено
+`review_required`. Чтобы показать чистый до/после на временной копии реестра:
 
 ```powershell
 Copy-Item state\decisions_registry.json "$env:TEMP\demo-decisions.json"
@@ -86,20 +95,20 @@ python scripts/recheck_decisions.py --registry "$env:TEMP\demo-decisions.json" -
 python -c "import json,os; print(json.load(open(os.path.join(os.environ['TEMP'],'demo-decisions.json'),encoding='utf-8'))['decisions'][0]['status'])"
 ```
 
-Show the output and explain that source-ID/watch-term matches set
-`review_required`; the script does not judge truth or revise the decision.
-The example's 78% retention is fictional and only demonstrates that review
-trigger.
+Поясните: source-ID/watch-term match лишь ставит решение в
+`review_required`; скрипт не проверяет истинность факта и не меняет решение
+самостоятельно. 78% retention является синтетическим тестовым значением.
 
-## 8:15–9:00 — Wrap with reproducibility and honest limits
+## 8:15–9:00 — Повторяемость и честные ограничения
 
-Run:
+Выполните:
 
 ```powershell
 python -m unittest discover -s tests -v
 ```
 
-Show `artifacts/baseline/comparison.md`. State that no matched chat baseline or
-IDE token/cost telemetry was available, so speed/cost superiority is not
-claimed. Explain how to record real paired runs with `cost_tracker.py` before
-making any comparative claim.
+Покажите [`artifacts/baseline/comparison.md`](../artifacts/baseline/comparison.md).
+Скажите, что matched ordinary-chat baseline и provider-токены не были доступны,
+поэтому никаких заявлений о реальном приросте скорости или снижении стоимости
+не сделано. Поясните, как регистрировать реальные paired runs через
+[`scripts/cost_tracker.py`](../scripts/cost_tracker.py).
