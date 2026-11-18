@@ -239,5 +239,6 @@ python -m unittest discover -s tests -v
 
 <div align="center">
   <p>🛠️ <b><a href="https://github.com/LNL-Engineering">LNL-Engineering</a></b> — <i>Building secure architectures through physical entropy.</i></p>
-  <p>📬 <b>Personal Profiles:</b> <a href="https://github.com/loanelly">@loanelly</a></p></b> <a href="https://github.com/loanelly">@loanelly</a></p>
+  <p>📬 <b>Personal Profiles:
+  </b> <a href="https://github.com/loanelly">@loanelly</a></b> <a href="https://github.com/artdengpo">@artdengpo</a></p>
 </div>
