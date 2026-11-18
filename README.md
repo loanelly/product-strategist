@@ -3,7 +3,7 @@
 
 # EntropyShield
 
-**Language:**  <a href="https://github.com/loanelly/EntropyShield/blob/main/README.md"><img src="https://github.com/loanelly/EntropyShield/blob/main/img/Flags/EN1.png" height="21" align="center"/></a> <a href="https://github.com/loanelly/EntropyShield/blob/main/README_RU.md"><img src="https://github.com/loanelly/EntropyShield/blob/main/img/Flags/result.png" height="26" align="center"/></a>
+**Language:**  <a href="https://github.com/loanelly/product-strategist/blob/main/README.en.md"><img src="https://github.com/loanelly/EntropyShield/blob/main/img/Flags/EN1.png" height="21" align="center"/></a> <a href="https://github.com/loanelly/product-strategist/blob/main/README.md"><img src="https://github.com/loanelly/EntropyShield/blob/main/img/Flags/result.png" height="26" align="center"/></a>
 
 
 **Язык:** Русский | [English](README.en.md)
