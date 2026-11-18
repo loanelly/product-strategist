@@ -1,14 +1,14 @@
 <img src="img/logo/logo.png" align="right" width="150px">
 
 
-# EntropyShield
+# Product Strategist
 
 **Language:**  <a href="https://github.com/loanelly/product-strategist/blob/main/README.en.md"><img src="https://github.com/loanelly/EntropyShield/blob/main/img/Flags/EN1.png" height="21" align="center"/></a> <a href="https://github.com/loanelly/product-strategist/blob/main/README.md"><img src="https://github.com/loanelly/EntropyShield/blob/main/img/Flags/result.png" height="26" align="center"/></a>
 
 
 **Язык:** Русский | [English](README.en.md)
 
-# Product Strategist — ИИ-агент для решений цифровых продуктов
+# ИИ-агент для решений цифровых продуктов
 
 **Product Strategist** превращает неоднозначный запрос руководителя продукта и набор разрешённых материалов в проверяемую картину ситуации, несколько содержательно разных вариантов, согласованные продуктовую и коммуникационную стратегии, независимую критику и возобновляемое решение.
 
