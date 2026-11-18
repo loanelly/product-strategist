@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/source-manifest.schema.json",
+  "title": "Authorized source manifest",
+  "type": "object",
+  "required": ["version", "sources"],
+  "properties": {
+    "version": { "const": 1 },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "locator", "accessed_at"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "kind": { "enum": ["web", "document", "table", "image", "audio", "video", "interview", "other"] },
+          "locator": { "type": "string", "minLength": 1 },
+          "accessed_at": { "type": "string", "minLength": 1 },
+          "title": { "type": "string" },
+          "content_hash": { "type": "string" },
+          "notes": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

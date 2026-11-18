@@ -1,0 +1,5 @@
+period,eligible_trials,paid_conversions,conversion_rate_pct,monthly_arpu_rub,gross_margin_pct,monthly_paid_retention_pct,attributed_acquisition_spend_rub,source_type
+Q1,10000,1800,18,199,65,88,1800000,synthetic_illustrative
+Q2,10500,1575,15,199,65,88,1575000,synthetic_illustrative
+Q3,11000,1320,12,199,65,88,1320000,synthetic_illustrative
+Q4,12000,1320,11,199,65,88,1320000,synthetic_illustrative

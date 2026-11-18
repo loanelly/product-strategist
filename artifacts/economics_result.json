@@ -1,0 +1,19 @@
+{
+  "currency": "RUB",
+  "period": "month",
+  "retention_rate": 0.88,
+  "gross_margin_ratio": 0.65,
+  "ltv": 1077.916667,
+  "cac": 1000.0,
+  "payback_months": 7.730963,
+  "formulas": {
+    "ltv": "monthly_arpu * gross_margin / (1 - monthly_retention)",
+    "cac": "acquisition_spend / new_customers",
+    "payback_months": "cac / (monthly_arpu * gross_margin)"
+  },
+  "assumptions": [
+    "Monthly retention is a constant cohort survival rate.",
+    "LTV is undiscounted and excludes costs beyond gross margin.",
+    "CAC uses the supplied acquisition spend and acquired-customer count."
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "currency": "RUB",
+  "period": "month",
+  "arpu": {
+    "value": 199,
+    "currency": "RUB",
+    "period": "month"
+  },
+  "gross_margin": {
+    "value": 0.65,
+    "unit": "ratio"
+  },
+  "retention": {
+    "value": 0.78,
+    "unit": "ratio",
+    "period": "month"
+  },
+  "acquisition_spend": {
+    "value": 1320000,
+    "currency": "RUB"
+  },
+  "new_customers": {
+    "value": 1320,
+    "unit": "customers"
+  }
+}

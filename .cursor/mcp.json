@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "fetch": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "mcp-server-fetch",
+        "--allowed-hosts",
+        "megafon.ru",
+        "*.megafon.ru",
+        "rosstat.gov.ru",
+        "data.gov.ru",
+        "cbr.ru",
+        "*.cbr.ru",
+        "oecd.org",
+        "*.oecd.org",
+        "ec.europa.eu"
+      ]
+    }
+  }
+}

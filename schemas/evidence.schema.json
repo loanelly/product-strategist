@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/evidence.schema.json",
+  "title": "Evidence graph",
+  "type": "object",
+  "required": ["version", "sources", "claims", "relations"],
+  "properties": {
+    "version": { "const": 1 },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "locator", "accessed_at"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "kind": { "enum": ["web", "document", "table", "image", "audio", "video", "interview", "other"] },
+          "locator": { "type": "string", "minLength": 1 },
+          "accessed_at": { "type": "string", "minLength": 1 },
+          "title": { "type": "string" },
+          "content_hash": { "type": "string" },
+          "notes": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "text", "type", "confidence", "source_ids"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "text": { "type": "string", "minLength": 1 },
+          "type": { "enum": ["fact", "hypothesis", "forecast"] },
+          "confidence": { "enum": ["low", "medium", "high"] },
+          "source_ids": { "type": "array", "items": { "type": "string" } },
+          "exact_location": { "type": "string", "minLength": 1 },
+          "created_at": { "type": "string" },
+          "valid_until": { "type": "string" },
+          "notes": { "type": "string" }
+        },
+        "allOf": [
+          {
+            "if": { "properties": { "type": { "const": "fact" } }, "required": ["type"] },
+            "then": {
+              "required": ["exact_location"],
+              "properties": { "source_ids": { "minItems": 1 } }
+            }
+          }
+        ],
+        "additionalProperties": false
+      }
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from", "to", "type"],
+        "properties": {
+          "from": { "type": "string" },
+          "to": { "type": "string" },
+          "type": { "enum": ["supports", "contradicts", "depends_on", "supersedes"] }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

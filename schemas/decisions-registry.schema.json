@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/decisions-registry.schema.json",
+  "title": "Decision registry",
+  "type": "object",
+  "required": ["version", "decisions", "processed_files"],
+  "properties": {
+    "version": { "const": 1 },
+    "decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "decision", "status", "claim_ids", "source_ids", "watch_terms"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "decision": { "type": "string", "minLength": 1 },
+          "status": { "enum": ["proposed", "adopted", "review_required", "superseded", "rejected"] },
+          "claim_ids": { "type": "array", "items": { "type": "string" } },
+          "source_ids": { "type": "array", "items": { "type": "string" } },
+          "watch_terms": { "type": "array", "items": { "type": "string" } },
+          "owner": { "type": "string" },
+          "kpi": { "type": "string" },
+          "deadline": { "type": "string" },
+          "review_triggers": { "type": "array", "items": { "type": "string" } },
+          "review_reasons": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    },
+    "processed_files": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["path", "sha256"],
+        "properties": {
+          "path": { "type": "string" },
+          "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

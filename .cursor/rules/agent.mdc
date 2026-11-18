@@ -1,0 +1,18 @@
+---
+description: Product Strategist workflow and safety rules
+alwaysApply: true
+---
+
+Follow the repository workflow and safety constraints in `AGENTS.md`.
+Load the relevant procedure from `skills/` when performing a skill-specific
+task. The IDE agent is the workflow orchestrator; Python scripts are
+deterministic tools only.
+
+Before resuming, read `state/workflow_state.json` and continue from its next
+action without repeating completed work. Before presenting a strategy, run the
+evidence validator.
+
+Adversarial review must be performed by a separate subagent/context with only
+the brief and finalized evidence/options/strategy artifacts. Do not provide
+the review subagent the strategy-generation chat, hidden reasoning, or draft
+history.

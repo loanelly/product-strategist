@@ -1,0 +1,308 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": "DEMO-FUNNEL",
+      "kind": "table",
+      "locator": "data/raw/demo/funnel_metrics.csv",
+      "accessed_at": "2026-11-18",
+      "title": "Synthetic Family Cloud funnel cohorts",
+      "content_hash": "9c24e29ea0216246088e4486c06d025b24d51767f5bf8f7d33ad29472b8b065d",
+      "notes": "Invented scenario values; not observed product/customer data."
+    },
+    {
+      "id": "DEMO-FEEDBACK",
+      "kind": "document",
+      "locator": "data/raw/demo/user_feedback.md",
+      "accessed_at": "2026-11-18",
+      "title": "Fictional feedback snippets",
+      "content_hash": "25a58bc9c77c5b87bcc3c334c2bb5129f6bca20b77fa425b88f1441fa97762f1",
+      "notes": "Synthetic fiction; not interviews, public reviews, or evidence of demand."
+    },
+    {
+      "id": "DEMO-UX",
+      "kind": "document",
+      "locator": "data/raw/demo/onboarding_screens.md",
+      "accessed_at": "2026-11-18",
+      "title": "Fictional onboarding screen descriptions",
+      "content_hash": "498f7e07ff1ed0f7645989b5817f7a08af2457334b62b8c0f702d411c5d3e66f",
+      "notes": "Invented text; no product interface was inspected."
+    },
+    {
+      "id": "DEMO-BENCH",
+      "kind": "document",
+      "locator": "data/raw/demo/market_benchmark.md",
+      "accessed_at": "2026-11-18",
+      "title": "Public cloud-use context",
+      "content_hash": "eeed03ee24b9c93627818d1121a6c7008c541c599dc4c8104af6ce85e382999e",
+      "notes": "Explains scope and limits of linked Eurostat public sources."
+    },
+    {
+      "id": "DEMO-ECONOMICS-INPUT",
+      "kind": "document",
+      "locator": "data/raw/demo/economics_input.json",
+      "accessed_at": "2026-11-18",
+      "title": "Synthetic monthly unit-economics inputs",
+      "content_hash": "5c35d723df878a35c7d68f4a15a1c1e038c68c20b3d937b778195a900c1a693f",
+      "notes": "Illustrative scenario assumptions only."
+    },
+    {
+      "id": "DEMO-ECONOMICS-RESULT",
+      "kind": "document",
+      "locator": "artifacts/economics_result.json",
+      "accessed_at": "2026-11-18",
+      "title": "Deterministic unit-economics calculation",
+      "content_hash": "f72662a9204ff5d3978f7ee67d14e9664cec606a1de5d56caf6198e1d1eff32e",
+      "notes": "Output from calc_economics.py using synthetic assumptions."
+    },
+    {
+      "id": "DEMO-Q3-UPDATE",
+      "kind": "document",
+      "locator": "data/new/q3_churn_update.md",
+      "accessed_at": "2026-11-18",
+      "title": "Synthetic Q3 retention counterexample",
+      "content_hash": "947c68fcb619f812199d2d108c89f568826243ad93eb72ce39b86806b1e23673",
+      "notes": "Test fixture to demonstrate recheck behavior; not real telemetry."
+    },
+    {
+      "id": "DEMO-ECONOMICS-Q3-INPUT",
+      "kind": "document",
+      "locator": "data/raw/demo/q3_economics_sensitivity_input.json",
+      "accessed_at": "2026-11-18",
+      "title": "Synthetic Q3 retention sensitivity inputs",
+      "content_hash": "8685dd20165d869dd0423679324cbe49cb72537b5c9918cc7e2cb29075d33bf9",
+      "notes": "Illustrative counterexample assumptions only."
+    },
+    {
+      "id": "DEMO-ECONOMICS-Q3-RESULT",
+      "kind": "document",
+      "locator": "artifacts/q3_economics_result.json",
+      "accessed_at": "2026-11-18",
+      "title": "Synthetic Q3 retention sensitivity calculation",
+      "content_hash": "7fe2133e73a984cf74893c4bb8bda468a4ec207726e8538146da590bbf36613b",
+      "notes": "Output from calc_economics.py using illustrative 78% retention."
+    },
+    {
+      "id": "EUROSTAT-ARTICLE",
+      "kind": "web",
+      "locator": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Digital_economy_and_society_statistics_-_households_and_individuals",
+      "accessed_at": "2026-11-18",
+      "title": "Digital economy and society statistics — households and individuals",
+      "notes": "Public EU context, not a local product conversion benchmark."
+    },
+    {
+      "id": "EUROSTAT-CLOUD-DATA",
+      "kind": "web",
+      "locator": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/isoc_cicci_use?lang=en",
+      "accessed_at": "2026-11-18",
+      "title": "Individuals - use of cloud services (2014-2020)",
+      "notes": "Old survey data; not comparable to trial conversion or Russian paid demand."
+    }
+  ],
+  "claims": [
+    {
+      "id": "DEMO-FACT-01",
+      "text": "The synthetic funnel table lists Q1 conversion of 18% and Q4 conversion of 11%, a 7 percentage-point difference in the invented scenario.",
+      "type": "fact",
+      "confidence": "high",
+      "source_ids": [
+        "DEMO-FUNNEL"
+      ],
+      "exact_location": "Rows Q1 and Q4; conversion_rate_pct column.",
+      "notes": "High confidence that these values appear in the fictional fixture, not that they describe a real product."
+    },
+    {
+      "id": "DEMO-FACT-02",
+      "text": "The synthetic table lists Q4 as 1,320 paid conversions from 12,000 eligible trials.",
+      "type": "fact",
+      "confidence": "high",
+      "source_ids": [
+        "DEMO-FUNNEL"
+      ],
+      "exact_location": "Row Q4; paid_conversions and eligible_trials columns.",
+      "notes": "Fictional data."
+    },
+    {
+      "id": "DEMO-FACT-03",
+      "text": "The feedback snippets and onboarding descriptions are explicitly fictional and not user research or observed interface evidence.",
+      "type": "fact",
+      "confidence": "high",
+      "source_ids": [
+        "DEMO-FEEDBACK",
+        "DEMO-UX"
+      ],
+      "exact_location": "Provenance headings at the beginning of both documents.",
+      "notes": "Describes fixture provenance only."
+    },
+    {
+      "id": "DEMO-FACT-04",
+      "text": "The Eurostat cloud-use dataset is labeled 2014-2020 and does not provide a directly comparable trial-to-paid benchmark for this case.",
+      "type": "fact",
+      "confidence": "high",
+      "source_ids": [
+        "EUROSTAT-CLOUD-DATA",
+        "DEMO-BENCH"
+      ],
+      "exact_location": "Eurostat dataset metadata label; market_benchmark.md sections 'Sources' and 'What this can and cannot tell us'.",
+      "notes": "Non-comparability is a methodological limitation, not a claim about market demand."
+    },
+    {
+      "id": "DEMO-FACT-05",
+      "text": "The calculator returns LTV 1,077.916667 RUB, CAC 1,000 RUB, and payback 7.730963 months for the synthetic monthly inputs.",
+      "type": "fact",
+      "confidence": "high",
+      "source_ids": [
+        "DEMO-ECONOMICS-INPUT",
+        "DEMO-ECONOMICS-RESULT"
+      ],
+      "exact_location": "economics_input.json values; economics_result.json ltv, cac, and payback_months fields.",
+      "notes": "Deterministic output for illustrative assumptions; not validated business economics."
+    },
+    {
+      "id": "DEMO-HYP-01",
+      "text": "The invented quarter-to-quarter conversion difference could reflect experience friction, changes in traffic or offer mix, measurement changes, or a combination; the fixture cannot identify its cause.",
+      "type": "hypothesis",
+      "confidence": "low",
+      "source_ids": [
+        "DEMO-FUNNEL"
+      ],
+      "exact_location": "Q1-Q4 cohort rows; no instrumentation or traffic-mix metadata is supplied.",
+      "notes": "Requires validated production instrumentation to test."
+    },
+    {
+      "id": "DEMO-HYP-02",
+      "text": "Permission clarity or understanding of family-sharing value may be a barrier worth testing with real eligible users.",
+      "type": "hypothesis",
+      "confidence": "low",
+      "source_ids": [
+        "DEMO-FEEDBACK",
+        "DEMO-UX"
+      ],
+      "exact_location": "Fictional snippets 1 and 3; fictional Screen 2.",
+      "notes": "The authored prompts are not evidence of real user prevalence."
+    },
+    {
+      "id": "DEMO-HYP-03",
+      "text": "Uncertainty about trial length, renewal, price, or cancellation may be a barrier that merits research.",
+      "type": "hypothesis",
+      "confidence": "low",
+      "source_ids": [
+        "DEMO-FEEDBACK",
+        "DEMO-UX"
+      ],
+      "exact_location": "Fictional snippets 2 and 4; fictional Screen 3.",
+      "notes": "No real product terms were provided."
+    },
+    {
+      "id": "DEMO-HYP-04",
+      "text": "The illustrative LTV/CAC result is not decision-grade until retention, gross margin, acquisition attribution, customer count, servicing cost, and cannibalization are verified.",
+      "type": "hypothesis",
+      "confidence": "high",
+      "source_ids": [
+        "DEMO-ECONOMICS-INPUT",
+        "DEMO-ECONOMICS-RESULT"
+      ],
+      "exact_location": "Synthetic assumption inputs; calculator assumptions and exclusions.",
+      "notes": "High confidence in the limitation, not in the true economics."
+    },
+    {
+      "id": "DEMO-HYP-05",
+      "text": "Validating trial measurement and product truth before any intervention is the safest immediate posture in the fictional scenario.",
+      "type": "hypothesis",
+      "confidence": "medium",
+      "source_ids": [
+        "DEMO-FUNNEL",
+        "DEMO-UX"
+      ],
+      "exact_location": "Cohort table definition gaps; fictional screen omissions.",
+      "notes": "Decision logic for a fictional demo, not operational advice for a real service."
+    },
+    {
+      "id": "DEMO-HYP-06",
+      "text": "The fixture does not establish a case for closing a real direction because it contains no validated lifetime value, cannibalization, customer obligations, or actual demand evidence.",
+      "type": "hypothesis",
+      "confidence": "medium",
+      "source_ids": [
+        "DEMO-FUNNEL",
+        "DEMO-ECONOMICS-INPUT",
+        "DEMO-BENCH"
+      ],
+      "exact_location": "All supplied demo data and the benchmark comparability limitations.",
+      "notes": "Insufficient evidence is not evidence that the actual product should be retained."
+    },
+    {
+      "id": "DEMO-HYP-07",
+      "text": "The proposed experiment is not decision-grade until assignment, eligibility, data quality, safety guardrails, and analysis/stopping rules are specified and approved.",
+      "type": "hypothesis",
+      "confidence": "low",
+      "source_ids": [
+        "DEMO-FUNNEL",
+        "DEMO-UX"
+      ],
+      "exact_location": "Proposed A/B test in this strategy; source fixtures lack event, eligibility, and real product details.",
+      "notes": "Methodological requirement for the proposed test; it is not evidence about an actual product."
+    },
+    {
+      "id": "DEMO-FORECAST-01",
+      "text": "An illustrative change from 11.0% to 13.5% is a hypothetical minimum-detectable-effect planning input, not a forecast or expected real-world result.",
+      "type": "forecast",
+      "confidence": "low",
+      "source_ids": [
+        "DEMO-FUNNEL"
+      ],
+      "exact_location": "Row Q4 baseline conversion_rate_pct; target is an explicitly chosen scenario assumption.",
+      "notes": "Planning threshold only, not a forecast."
+    },
+    {
+      "id": "DEMO-FORECAST-02",
+      "text": "Scaling should be rejected if verified incremental contribution after service costs and cannibalization is negative or conversion lift does not persist to a retention checkpoint.",
+      "type": "forecast",
+      "confidence": "low",
+      "source_ids": [
+        "DEMO-ECONOMICS-INPUT",
+        "DEMO-ECONOMICS-RESULT"
+      ],
+      "exact_location": "Economic inputs and documented excluded costs.",
+      "notes": "Conditional decision rule; actual thresholds require owner approval."
+    },
+    {
+      "id": "DEMO-FORECAST-03",
+      "text": "A gated account-randomized test could isolate one family-sharing permission clarification while holding price, trial terms, storage-value copy, eligibility, and traffic mix fixed, followed by retention and guardrail review.",
+      "type": "forecast",
+      "confidence": "low",
+      "source_ids": [
+        "DEMO-UX",
+        "DEMO-FUNNEL"
+      ],
+      "exact_location": "Fictional Screen 2 and Q4 baseline; proposed test design.",
+      "notes": "Requires pre-registration, power analysis, and approval; sample count is provisional."
+    }
+  ],
+  "relations": [
+    {
+      "from": "DEMO-FACT-01",
+      "to": "DEMO-HYP-01",
+      "type": "supports"
+    },
+    {
+      "from": "DEMO-FACT-03",
+      "to": "DEMO-HYP-02",
+      "type": "supports"
+    },
+    {
+      "from": "DEMO-FACT-03",
+      "to": "DEMO-HYP-03",
+      "type": "supports"
+    },
+    {
+      "from": "DEMO-FACT-05",
+      "to": "DEMO-HYP-04",
+      "type": "supports"
+    },
+    {
+      "from": "DEMO-FORECAST-03",
+      "to": "DEMO-HYP-02",
+      "type": "depends_on"
+    }
+  ]
+}

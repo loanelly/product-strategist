@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "hooks": {
+    "workspaceOpen": [
+      {
+        "command": "python scripts/cursor_hook.py",
+        "timeout": 30
+      }
+    ],
+    "beforeMCPExecution": [
+      {
+        "command": "python scripts/cursor_hook.py",
+        "timeout": 10,
+        "failClosed": true,
+        "matcher": "fetch"
+      }
+    ],
+    "afterFileEdit": [
+      {
+        "command": "python scripts/cursor_hook.py",
+        "timeout": 30
+      }
+    ]
+  }
+}

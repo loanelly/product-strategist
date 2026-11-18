@@ -1,0 +1,22 @@
+{
+  "scanned": 1,
+  "changed_files": [
+    "q3_churn_update.md"
+  ],
+  "affected_decisions": [
+    {
+      "id": "DEMO-D-001",
+      "claim_ids": [
+        "DEMO-FACT-01",
+        "DEMO-HYP-01",
+        "DEMO-HYP-02",
+        "DEMO-HYP-04",
+        "DEMO-FORECAST-03"
+      ],
+      "reasons": [
+        "incoming material declares related source id(s): DEMO-Q3-UPDATE",
+        "watch term(s) found: trial conversion, paid retention, churn update"
+      ]
+    }
+  ]
+}

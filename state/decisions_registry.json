@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "decisions": [
+    {
+      "id": "DEMO-D-001",
+      "decision": "For the fictional case, validate funnel instrumentation and product truth first; if a real permission-clarity barrier is confirmed, test one isolated onboarding clarification before any rollout.",
+      "status": "review_required",
+      "claim_ids": [
+        "DEMO-FACT-01",
+        "DEMO-HYP-01",
+        "DEMO-HYP-02",
+        "DEMO-HYP-04",
+        "DEMO-FORECAST-03"
+      ],
+      "source_ids": [
+        "DEMO-FUNNEL",
+        "DEMO-UX",
+        "DEMO-Q3-UPDATE"
+      ],
+      "watch_terms": [
+        "trial conversion",
+        "paid retention",
+        "family sharing",
+        "churn update"
+      ],
+      "owner": "Fictional Head of Digital Products (demo role; not a real assignee)",
+      "kpi": "Paid conversions divided by eligible randomized trial starters; guardrails: 30-day paid retention, refunds, complaints, support contacts, contribution margin and cannibalization.",
+      "deadline": "Before any real test or release; no calendar date assigned in this fictional demo.",
+      "review_triggers": [
+        "A new validated cohort/retention source materially changes the economics or the baseline.",
+        "A source demonstrates that the sharing-clarity hypothesis is false or the product capability differs from the proposed wording.",
+        "Tracking definitions or eligible-trial population change.",
+        "Any experiment guardrail crosses a threshold approved by the real decision owner."
+      ],
+      "review_reasons": [
+        "incoming material declares related source id(s): DEMO-Q3-UPDATE",
+        "watch term(s) found: trial conversion, paid retention, churn update"
+      ]
+    }
+  ],
+  "processed_files": {
+    "q3_churn_update.md": {
+      "path": "q3_churn_update.md",
+      "sha256": "947c68fcb619f812199d2d108c89f568826243ad93eb72ce39b86806b1e23673"
+    }
+  }
+}

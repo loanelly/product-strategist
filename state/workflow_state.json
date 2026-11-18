@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "project_id": "demo",
+  "stage": 8,
+  "status": "paused",
+  "next_action": "A human decision owner must review the synthetic Q3 retention counterexample and approve any real follow-up; no production action is authorized.",
+  "completed_actions": [
+    {
+      "id": "demo-brief",
+      "result": "Created a fictional brief with explicit data boundaries.",
+      "input_hashes": {
+        "projects/demo/brief.md": "13296d0e9750ef56254bd729239862d8e671854d1e31b584c58cc7e5fbac89db",
+        "data/source_manifest.json": "7166de2d314fecaa2010697d289ca4da97089f84bdca85a434ffe8303ff69824",
+        "state/evidence_graph.json": "10525f2398e818290ee7fcb944b21b38182d37939939ac31b3490ea8dae8ded7",
+        "artifacts/options.md": "ebe3a5d924c92637f7c76594894291fc466a1e7ac48358c1aa5b8ab57707468b",
+        "artifacts/strategy.md": "7cc17efeae9df72d49ad0041f34a3ab4248dac45835d584aa6c87d4a65e00e91",
+        "data/new/q3_churn_update.md": "947c68fcb619f812199d2d108c89f568826243ad93eb72ce39b86806b1e23673"
+      }
+    },
+    {
+      "id": "demo-evidence",
+      "result": "Built and validated a source-linked graph from synthetic data and public Eurostat context.",
+      "input_hashes": {
+        "projects/demo/brief.md": "13296d0e9750ef56254bd729239862d8e671854d1e31b584c58cc7e5fbac89db",
+        "data/source_manifest.json": "7166de2d314fecaa2010697d289ca4da97089f84bdca85a434ffe8303ff69824",
+        "state/evidence_graph.json": "10525f2398e818290ee7fcb944b21b38182d37939939ac31b3490ea8dae8ded7",
+        "artifacts/options.md": "ebe3a5d924c92637f7c76594894291fc466a1e7ac48358c1aa5b8ab57707468b",
+        "artifacts/strategy.md": "7cc17efeae9df72d49ad0041f34a3ab4248dac45835d584aa6c87d4a65e00e91",
+        "data/new/q3_churn_update.md": "947c68fcb619f812199d2d108c89f568826243ad93eb72ce39b86806b1e23673"
+      }
+    },
+    {
+      "id": "demo-strategy",
+      "result": "Prepared options, a conditional strategy, and an isolated adversarial critique.",
+      "input_hashes": {
+        "projects/demo/brief.md": "13296d0e9750ef56254bd729239862d8e671854d1e31b584c58cc7e5fbac89db",
+        "data/source_manifest.json": "7166de2d314fecaa2010697d289ca4da97089f84bdca85a434ffe8303ff69824",
+        "state/evidence_graph.json": "10525f2398e818290ee7fcb944b21b38182d37939939ac31b3490ea8dae8ded7",
+        "artifacts/options.md": "ebe3a5d924c92637f7c76594894291fc466a1e7ac48358c1aa5b8ab57707468b",
+        "artifacts/strategy.md": "7cc17efeae9df72d49ad0041f34a3ab4248dac45835d584aa6c87d4a65e00e91",
+        "data/new/q3_churn_update.md": "947c68fcb619f812199d2d108c89f568826243ad93eb72ce39b86806b1e23673"
+      }
+    },
+    {
+      "id": "demo-recheck",
+      "result": "New synthetic Q3 update flagged DEMO-D-001 as review_required.",
+      "input_hashes": {
+        "projects/demo/brief.md": "13296d0e9750ef56254bd729239862d8e671854d1e31b584c58cc7e5fbac89db",
+        "data/source_manifest.json": "7166de2d314fecaa2010697d289ca4da97089f84bdca85a434ffe8303ff69824",
+        "state/evidence_graph.json": "10525f2398e818290ee7fcb944b21b38182d37939939ac31b3490ea8dae8ded7",
+        "artifacts/options.md": "ebe3a5d924c92637f7c76594894291fc466a1e7ac48358c1aa5b8ab57707468b",
+        "artifacts/strategy.md": "7cc17efeae9df72d49ad0041f34a3ab4248dac45835d584aa6c87d4a65e00e91",
+        "data/new/q3_churn_update.md": "947c68fcb619f812199d2d108c89f568826243ad93eb72ce39b86806b1e23673"
+      }
+    }
+  ],
+  "pending_human_approval": "Review the triggered synthetic decision recheck. Confirm that this is a demo only; separately authorize any real research or experiment.",
+  "input_hashes": {
+    "projects/demo/brief.md": "13296d0e9750ef56254bd729239862d8e671854d1e31b584c58cc7e5fbac89db",
+    "data/source_manifest.json": "7166de2d314fecaa2010697d289ca4da97089f84bdca85a434ffe8303ff69824",
+    "state/evidence_graph.json": "10525f2398e818290ee7fcb944b21b38182d37939939ac31b3490ea8dae8ded7",
+    "artifacts/options.md": "ebe3a5d924c92637f7c76594894291fc466a1e7ac48358c1aa5b8ab57707468b",
+    "artifacts/strategy.md": "7cc17efeae9df72d49ad0041f34a3ab4248dac45835d584aa6c87d4a65e00e91",
+    "data/new/q3_churn_update.md": "947c68fcb619f812199d2d108c89f568826243ad93eb72ce39b86806b1e23673"
+  },
+  "updated_at": "2026-11-18T18:45:00+03:00"
+}
