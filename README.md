@@ -133,7 +133,7 @@ python scripts/cost_tracker.py compare --scenario-id demo
 
 `cost_tracker.py` не получает биллинг провайдера автоматически. Для честного отчёта нужно добавить фактические токены и стоимость каждого measured-run.
 
-## Документация для сдачи
+## Документация для сдачи 
 
 - Полный отчёт по архитектуре и ограничениям: [`docs/SUBMISSION_REPORT.md`](docs/SUBMISSION_REPORT.md)
 - Сценарий видеодемонстрации до 10 минут: [`docs/DEMO_VIDEO_SCRIPT.md`](docs/DEMO_VIDEO_SCRIPT.md)
