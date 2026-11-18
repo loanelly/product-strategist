@@ -1,4 +1,4 @@
-<img src="img/logo/logo.png" align="right" width="150px">
+<img src=".github/5732-fotor-bg-remover-20261118211536.png" align="right" width="180px">
 
 
 # Product Strategist
