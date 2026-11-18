@@ -234,3 +234,10 @@ python -m unittest discover -s tests -v
 - Английский отчёт и сценарий: [`docs/en/SUBMISSION_REPORT.md`](docs/en/SUBMISSION_REPORT.md), [`docs/en/DEMO_VIDEO_SCRIPT.md`](docs/en/DEMO_VIDEO_SCRIPT.md)
 - Журнал реального запуска: [`artifacts/run_log.jsonl`](artifacts/run_log.jsonl)
 - English version: [README.en.md](README.en.md)
+
+---
+
+<div align="center">
+  <p>🛠️ <b><a href="https://github.com/LNL-Engineering">LNL-Engineering</a></b> — <i>Building secure architectures through physical entropy.</i></p>
+  <p>📬 <b>Personal Profiles:</b> <a href="https://github.com/loanelly">@loanelly</a></p></b> <a href="https://github.com/loanelly">@loanelly</a></p>
+</div>
