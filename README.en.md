@@ -1,6 +1,11 @@
-**Language:** [Русский](README.md) | English
+<img src=".github/5732-fotor-bg-remover-20261118211536.png" align="right" width="180px">
 
-# Product Strategist — AI agent for digital product decisions
+
+# Product Strategist
+
+**Language:**  <a href="https://github.com/loanelly/product-strategist/blob/main/README.en.md"><img src="https://github.com/loanelly/EntropyShield/blob/main/img/Flags/EN1.png" height="21" align="center"/></a> <a href="https://github.com/loanelly/product-strategist/blob/main/README.md"><img src="https://github.com/loanelly/EntropyShield/blob/main/img/Flags/result.png" height="26" align="center"/></a>
+
+# AI agent for digital product decisions
 
 **Product Strategist** turns an ambiguous product request and a set of authorized materials into a verifiable picture of the situation, materially distinct options, aligned product and communication strategies, independent criticism, and a resumable decision record.
 
