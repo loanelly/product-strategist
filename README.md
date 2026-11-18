@@ -1,130 +1,141 @@
-# Product Strategist — IDE agent for digital product decisions
+**Язык:** Русский | [English](README.en.md)
 
-An IDE-orchestrated research workflow that turns a product question and
-authorized materials into source-linked evidence, materially different
-options, a product and communication strategy, an adversarial review, and a
-resumable decision record. The IDE agent orchestrates; Python 3.12 scripts are
-deterministic tools only. There is no custom LLM loop.
+# Product Strategist — ИИ-агент для решений цифровых продуктов
 
-The included Family Cloud demo uses fictional data plus limited public
-Eurostat context. It describes **no real MegaFon product or customers**.
+**Product Strategist** превращает неоднозначный запрос руководителя продукта и набор разрешённых материалов в проверяемую картину ситуации, несколько содержательно разных вариантов, согласованные продуктовую и коммуникационную стратегии, независимую критику и возобновляемое решение.
 
-## Run in about 3 minutes
+Оркестратором является агент внутри Cursor, GitHub Copilot, Claude Code или совместимой IDE. Python-скрипты выполняют детерминированные проверки, расчёты и реестры: они не создают собственный LLM-цикл.
 
-Prerequisites: Python 3.12 and an IDE agent such as Cursor, GitHub Copilot, or
-Claude Code. Internet access is needed for the optional Fetch MCP server's
-first start. No API key is required to run tests or deterministic tools.
+В репозитории реализован демонстрационный кейс **Family Cloud** на синтетических данных и ограниченном публичном контексте Eurostat. Кейс явно не относится к реальным продуктам, заказчикам или данным МегаФона.
 
-1. Open this folder as a trusted workspace in your IDE. The agent should read
-   `AGENTS.md` and resume at the checkpoint in `state/workflow_state.json`.
-2. In Cursor, approve/install the configured `fetch` MCP server (`uvx
-   mcp-server-fetch`) if public web research is wanted. Its domains are
-   allowlisted in `.cursor/mcp.json` and checked again by the Cursor hook.
-3. Run the tests and the demo tools:
+## Что умеет агент
 
-   ```powershell
-   python --version
-   python -m unittest discover -s tests -v
-   python scripts/validate_evidence.py
-   python scripts/calc_economics.py data/raw/demo/economics_input.json
-   python scripts/calc_economics.py data/raw/demo/q3_economics_sensitivity_input.json
-   python scripts/recheck_decisions.py
-   ```
+- Уточняет решение, ЛПР, цель, аудиторию, ограничения и критерии успеха.
+- Собирает факты из документов, таблиц, публичных веб-источников и описаний интерфейсов.
+- Отделяет факты, гипотезы и прогнозы и ведёт граф доказательств с ссылками и уверенностью.
+- Предлагает минимум три содержательно разные позиции, включая **«оставить как есть»** и **«закрыть направление»**.
+- Формирует согласованные продуктовую и коммуникационную стратегии с планом проверки и защитными метриками.
+- Запускает изолированную независимую критику и фиксирует решение, владельца, KPI, сроки и триггеры пересмотра.
+- Сохраняет контрольную точку и продолжает работу в новом чате или IDE без повторения выполненных шагов.
+- При появлении новых данных определяет затронутые решения и переводит их в статус `review_required`.
 
-The repository starts with `DEMO-D-001` at `review_required`:
-`data/new/q3_churn_update.md` is an intentionally synthetic counterexample,
-not real churn evidence. `artifacts/recheck_report.json` preserves the first
-recheck result. Re-running is safe: unchanged input hashes are skipped.
-
-## Start a new project
-
-Ask the IDE agent to use `skills/intake/SKILL.md`, create an authorized project
-brief, and pause for human approval before research. Put only permitted,
-sanitized inputs in the project's `data/` area. Follow
-`knowledge/source-safety.md`; do not commit secrets, personal data, or
-confidential company materials. To wrap an authorized UTF-8 text source while
-preserving a hash and untrusted-data boundary:
-
-```powershell
-python scripts/ingest_source.py path\to\source.txt --source-id SRC-001 --locator "file:path\to\source.txt"
-```
-
-The owner may configure optional model-provider environment variables from
-`.env.example` in their IDE secret store. The repository has no default model
-provider or embedded credentials; check the chosen model's pricing and log
-actual tokens and cost if running a paid model.
-
-## Architecture
+## Архитектура
 
 ```text
-Cursor / Copilot / Claude Code
-          |
-          +-- AGENTS.md + IDE adapters + modular skills
-          +-- approved human checkpoints
-          +-- Fetch MCP (public allowlisted hosts; Cursor hook checks URLs)
-          +-- Python 3.12 deterministic tools
-          |      ingest_source / validate_evidence / calc_economics
-          |      cost_tracker / recheck_decisions
-          +-- state/ checkpoints, evidence graph, decision registry/log
-          +-- artifacts/ strategy, review, run log, baseline report
+Cursor / GitHub Copilot / Claude Code
+                  |
+                  +-- AGENTS.md и адаптеры IDE
+                  +-- Модульные Skills и знания
+                  +-- Human-in-the-loop на ключевых выборах
+                  +-- Fetch MCP и allowlist доменов
+                  +-- Детерминированные Python 3.12 CLI
+                  |      ingest_source / validate_evidence
+                  |      calc_economics / recheck_decisions
+                  |      cost_tracker
+                  +-- state/ и evidence graph
+                  +-- artifacts/ и журнал решений
 ```
 
-`AGENTS.md` is canonical; `CLAUDE.md` and `.github/copilot-instructions.md`
-are thin adapters. The separate `adversarial-reviewer` Cursor subagent gets
-only the brief and finalized artifacts, not strategy-generation history.
-Hooks recheck decisions on workspace open/new-data edits and validate the
-strategy after edits. `recheck_decisions.py` uses source IDs/watch terms to
-flag candidates, not an LLM or semantic detector; an agent/human decides
-whether a conclusion actually changed.
+Постоянные правила находятся в [`AGENTS.md`](AGENTS.md). Адаптеры для IDE: [`.cursor/rules/agent.mdc`](.cursor/rules/agent.mdc), [`.github/copilot-instructions.md`](.github/copilot-instructions.md) и [`CLAUDE.md`](CLAUDE.md).
 
-## Skills and knowledge
+Процедуры вынесены в [`skills/`](skills/), методическая база — в [`knowledge/`](knowledge/), а состояния и результаты разделены по [`state/`](state/) и [`artifacts/`](artifacts/). Подробная схема файлов описана в [отчёте для жюри](docs/SUBMISSION_REPORT.md).
 
-Skills in `skills/` cover intake, research, synthetic respondents, UX and
-multimodal audit, data analysis, strategy, adversarial review, and decision
-follow-up. `knowledge/` documents source evaluation/falsification, strategy
-quality, and safe handling. Synthetic respondents are hypothesis prompts
-only; they cannot establish demand or prevalence.
+### MCP и Hooks
 
-## Python tools
+- [`.cursor/mcp.json`](.cursor/mcp.json) подключает стандартный MCP-сервер Fetch и разрешённые публичные домены.
+- [`.cursor/hooks.json`](.cursor/hooks.json) автоматически запускает проверки после редактирования стратегии и перепроверяет решения при открытии workspace или появлении новых файлов.
+- Внешний контент считается недоверенными данными. Правила изолируются в [`knowledge/source-safety.md`](knowledge/source-safety.md), а источник оборачивается скриптом [`scripts/ingest_source.py`](scripts/ingest_source.py).
 
-- `ingest_source.py`: UTF-8 source wrapper with origin and SHA-256; source text
-  remains explicitly untrusted.
-- `validate_evidence.py`: checks structured strategy claims, evidence IDs,
-  claim type/confidence, and source locators. Facts require exact source
-  locations.
-- `calc_economics.py`: reproducibly calculates monthly LTV, CAC, and payback
-  only when inputs/units are explicit; it does not infer retention or model
-  cannibalization.
-- `recheck_decisions.py`: scans supported UTF-8 text files, stores hashes,
-  and flags decisions by source-ID or watch-term matches.
-- `cost_tracker.py`: aggregates manually recorded paired runs by elapsed time,
-  token/cost reports, tool calls, workflow steps, evidence coverage,
-  calculations, and identified risks. It does not retrieve provider billing
-  data; use the actual IDE/provider usage report as the record of cost.
+### Независимая критика
 
-All scripts use only Python's standard library. Run tests with:
+Этап adversarial review запускается отдельным субагентом с ограниченным контекстом: ему передаются только бриф, граф доказательств, варианты и стратегия. История генерации не передаётся. Конфигурация: [`.cursor/agents/adversarial-reviewer.md`](.cursor/agents/adversarial-reviewer.md), процедура: [`skills/adversarial-review/SKILL.md`](skills/adversarial-review/SKILL.md).
+
+## Быстрый старт за 3 минуты
+
+**Требования:** Python 3.12 и Cursor, GitHub Copilot, Claude Code или совместимая IDE. Для тестов и детерминированных скриптов API-модель и платные сервисы не нужны.
+
+1. Откройте папку репозитория как доверенный workspace.
+2. В Cursor настройте Fetch MCP из [`.cursor/mcp.json`](.cursor/mcp.json), если нужен публичный веб-поиск.
+3. Запустите проверку и демо:
+
+```powershell
+python --version
+python -m unittest discover -s tests -v
+python scripts/validate_evidence.py
+python scripts/calc_economics.py data/raw/demo/economics_input.json
+python scripts/calc_economics.py data/raw/demo/q3_economics_sensitivity_input.json
+python scripts/recheck_decisions.py
+```
+
+На старте демо решение `DEMO-D-001` находится на пересмотре. Новый синтетический файл [`data/new/q3_churn_update.md`](data/new/q3_churn_update.md) опровергает допущение о постоянном удержании и должен менять статус решения только после проверки человеком.
+
+Дополнительные переменные окружения перечислены в [`.env.example`](.env.example). Реальные ключи не хранятся в репозитории и задаются только через локальные секретные хранилища IDE или оболочки.
+
+## Демо-кейс Family Cloud
+
+Фиктивный сервис облачного хранения для абонентов мобильного оператора столкнулся с падением trial-to-paid конверсии в синтетической таблице с 18% до 11%.
+
+Исходные данные и границы подробно описаны в [`projects/demo/README.md`](projects/demo/README.md):
+
+- [`data/raw/demo/funnel_metrics.csv`](data/raw/demo/funnel_metrics.csv) — синтетическая таблица когорт;
+- [`data/raw/demo/user_feedback.md`](data/raw/demo/user_feedback.md) — вымышленные фрагменты отзывов;
+- [`data/raw/demo/onboarding_screens.md`](data/raw/demo/onboarding_screens.md) — описания вымышленного онбординга;
+- [`data/raw/demo/market_benchmark.md`](data/raw/demo/market_benchmark.md) — контекст публичных данных Eurostat;
+- [`data/raw/demo/economics_input.json`](data/raw/demo/economics_input.json) — явно помеченные сценарные допущения;
+- [`data/raw/demo/q3_economics_sensitivity_input.json`](data/raw/demo/q3_economics_sensitivity_input.json) — проверка чувствительности к снижению retention.
+
+Ключевые артефакты:
+
+- Бриф: [`projects/demo/brief.md`](projects/demo/brief.md)
+- План исследования: [`artifacts/research_plan.md`](artifacts/research_plan.md)
+- Граф доказательств: [`state/evidence_graph.json`](state/evidence_graph.json)
+- Варианты решений: [`artifacts/options.md`](artifacts/options.md)
+- Стратегия: [`artifacts/strategy.md`](artifacts/strategy.md)
+- Независимая критика: [`artifacts/adversarial_review.md`](artifacts/adversarial_review.md)
+- Экономика: [`artifacts/economics_result.json`](artifacts/economics_result.json)
+- Проверка по новому риску: [`artifacts/q3_economics_result.json`](artifacts/q3_economics_result.json)
+- Реестр решения: [`state/decisions_registry.json`](state/decisions_registry.json)
+- Журнал решений: [`state/decision_log.md`](state/decision_log.md)
+
+Демо не доказывает реальный спрос, retention, ARPU или эффективность интерфейса. Оно проверяет сквозной workflow, воспроизводимость расчёта, цитирование фактов и автоматический пересмотр решений.
+
+## Инструменты
+
+- [`scripts/ingest_source.py`](scripts/ingest_source.py) — упаковка UTF-8 источника с provenance и SHA-256;
+- [`scripts/validate_evidence.py`](scripts/validate_evidence.py) — проверка фактов, evidence IDs, уверенности и точных локаторов;
+- [`scripts/calc_economics.py`](scripts/calc_economics.py) — расчёт LTV, CAC и срока окупаемости при явных единицах и периодах;
+- [`scripts/recheck_decisions.py`](scripts/recheck_decisions.py) — хеширование и поиск связанных новых данных;
+- [`scripts/cost_tracker.py`](scripts/cost_tracker.py) — сравнительный учёт времени, токенов, стоимости, шагов и качества.
+
+Все скрипты используют только стандартную библиотеку Python 3.12.
 
 ```powershell
 python -m unittest discover -s tests -v
+python scripts/cost_tracker.py compare --scenario-id demo
 ```
 
-## Project map
+## Продолжение работы
 
-| Path | Purpose |
-|---|---|
-| `AGENTS.md`, `.cursor/`, `.github/`, `CLAUDE.md` | Portable agent instructions, MCP, hooks, isolated reviewer |
-| `skills/`, `knowledge/` | Reusable procedures and methods |
-| `schemas/` | Contracts for evidence, checkpoint, decisions, and source manifest |
-| `scripts/`, `tests/` | Deterministic tools and standard-library tests |
-| `data/raw/demo/`, `projects/demo/` | Explicitly fictional demonstration inputs and brief |
-| `state/`, `data/source_manifest.json` | Resumable work, evidence, decisions, source provenance |
-| `artifacts/`, `docs/` | Strategy, economics, review, baseline method, submission/video documents |
+Агент сначала читает [`state/workflow_state.json`](state/workflow_state.json), сверяет сохранённые хеши и продолжает только незавершённое действие. Решения хранятся в [`state/decisions_registry.json`](state/decisions_registry.json), а изменения протоколируются в [`state/decision_log.md`](state/decision_log.md).
 
-## Baseline and known limits
+При добавлении нового файла в [`data/new/`](data/new/) запускается хук или команда `recheck_decisions.py`. Скрипт отмечает затронутые решения, но не меняет их без человеко-читаемой и агентской оценки новых данных.
 
-`artifacts/baseline/comparison.md` describes a paired, reproducible comparison
-against a plain chat prompt. No honest LLM-token/cost or baseline-run figures
-are claimed for this repository snapshot: the IDE/provider usage report and a
-matched ordinary-chat run were not available to the local scripts. Record
-both actual runs before reporting efficiency as a measured result.
-`docs/SUBMISSION_REPORT.md` documents the current state and restrictions.
+## Схема знаний и проверок
+
+- [`knowledge/research-methods.md`](knowledge/research-methods.md) — надёжность источников, пробелы и falsification-критерии;
+- [`knowledge/strategy-framework.md`](knowledge/strategy-framework.md) — продуктовая и коммуникационная стратегия, retention, ARPU, cannibalization и plan experiment;
+- [`knowledge/source-safety.md`](knowledge/source-safety.md) — prompt injection, ПДн, секреты и закрытые данные;
+- [`schemas/`](schemas/) — JSON-схемы графа доказательств, checkpoint, реестра решений и манифеста.
+
+## Сравнение с обычным чатом
+
+[`artifacts/baseline/comparison.md`](artifacts/baseline/comparison.md) описывает протокол парного измерения времени, стоимости, шагов и качества. В репозитории не представлены вымышленные цифры сравнения: реально доступные IDE-телеметрия и matched plain-chat baseline отсутствовали.
+
+`cost_tracker.py` не получает биллинг провайдера автоматически. Для честного отчёта нужно добавить фактические токены и стоимость каждого measured-run.
+
+## Документация для сдачи
+
+- Полный отчёт по архитектуре и ограничениям: [`docs/SUBMISSION_REPORT.md`](docs/SUBMISSION_REPORT.md)
+- Сценарий видеодемонстрации до 10 минут: [`docs/DEMO_VIDEO_SCRIPT.md`](docs/DEMO_VIDEO_SCRIPT.md)
+- Журнал реального запуска: [`artifacts/run_log.jsonl`](artifacts/run_log.jsonl)
+- English version: [README.en.md](README.en.md)
