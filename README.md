@@ -40,6 +40,90 @@ Cursor / GitHub Copilot / Claude Code
 
 Процедуры вынесены в [`skills/`](skills/), методическая база — в [`knowledge/`](knowledge/), а состояния и результаты разделены по [`state/`](state/) и [`artifacts/`](artifacts/). Подробная схема файлов описана в [отчёте для жюри](docs/SUBMISSION_REPORT.md).
 
+### Актуальная карта репозитория
+
+```text
+.cursor/
+  agents/adversarial-reviewer.md
+  hooks.json
+  mcp.json
+  rules/agent.mdc
+.github/
+  copilot-instructions.md
+artifacts/
+  baseline/comparison.md
+  adversarial_review.md
+  economics_result.json
+  options.md
+  q3_economics_result.json
+  recheck_report.json
+  research_plan.md
+  run_log.jsonl
+  strategy.md
+data/
+  new/README.md
+  new/q3_churn_update.md
+  raw/demo/
+    economics_input.json
+    funnel_metrics.csv
+    market_benchmark.md
+    onboarding_screens.md
+    q3_economics_sensitivity_input.json
+    user_feedback.md
+  source_manifest.json
+docs/
+  DEMO_VIDEO_SCRIPT.md
+  SUBMISSION_REPORT.md
+  en/
+    DEMO_VIDEO_SCRIPT.md
+    SUBMISSION_REPORT.md
+knowledge/
+  research-methods.md
+  source-safety.md
+  strategy-framework.md
+projects/
+  demo/
+    DEMO_CASE_PACK.md
+    README.md
+    brief.md
+schemas/
+  decisions-registry.schema.json
+  evidence.schema.json
+  source-manifest.schema.json
+  workflow-state.schema.json
+scripts/
+  calc_economics.py
+  cost_tracker.py
+  cursor_hook.py
+  ingest_source.py
+  recheck_decisions.py
+  validate_evidence.py
+skills/
+  adversarial-review/SKILL.md
+  data-analysis/SKILL.md
+  decision-followup/SKILL.md
+  intake/SKILL.md
+  research/SKILL.md
+  strategy/SKILL.md
+  synthetic-respondents/SKILL.md
+  ux-multimodal-audit/SKILL.md
+state/
+  decision_log.md
+  decisions_registry.json
+  evidence_graph.json
+  workflow_state.json
+tests/
+  test_tools.py
+AGENTS.md
+CLAUDE.md
+README.md
+README.en.md
+.env.example
+.gitignore
+```
+
+Встроенные папки IDE и временные каталоги (`.idea/`, `.vscode/`, `__pycache__/`, `.pytest_cache/`) исключены из публикации через [`.gitignore`](.gitignore).
+
 ### MCP и Hooks
 
 - [`.cursor/mcp.json`](.cursor/mcp.json) подключает стандартный MCP-сервер Fetch и разрешённые публичные домены.
@@ -111,8 +195,9 @@ python scripts/recheck_decisions.py
 
 ```powershell
 python -m unittest discover -s tests -v
-python scripts/cost_tracker.py compare --scenario-id demo
 ```
+
+На текущий момент набор содержит 19 автотестов. Cost tracker работает в режимах `add` и `compare`; подробный протокол парного замера и измеренная локальная фаза демо находятся в [`artifacts/baseline/comparison.md`](artifacts/baseline/comparison.md).
 
 ## Продолжение работы
 
@@ -135,6 +220,8 @@ python scripts/cost_tracker.py compare --scenario-id demo
 
 ## Документация для сдачи 
 
+- Единый пакет демо-кейса: [`projects/demo/DEMO_CASE_PACK.md`](projects/demo/DEMO_CASE_PACK.md)
+- Baseline-сравнение: [`artifacts/baseline/comparison.md`](artifacts/baseline/comparison.md)
 - Полный отчёт по архитектуре и ограничениям: [`docs/SUBMISSION_REPORT.md`](docs/SUBMISSION_REPORT.md)
 - Сценарий видеодемонстрации до 10 минут: [`docs/DEMO_VIDEO_SCRIPT.md`](docs/DEMO_VIDEO_SCRIPT.md)
 - Английский отчёт и сценарий: [`docs/en/SUBMISSION_REPORT.md`](docs/en/SUBMISSION_REPORT.md), [`docs/en/DEMO_VIDEO_SCRIPT.md`](docs/en/DEMO_VIDEO_SCRIPT.md)

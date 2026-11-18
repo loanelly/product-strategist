@@ -40,6 +40,90 @@ Canonical rules live in [`AGENTS.md`](AGENTS.md). IDE adapters are [`.cursor/rul
 
 Reusable procedures are in [`skills/`](skills/), methodology in [`knowledge/`](knowledge/), and project state/results are separated between [`state/`](state/) and [`artifacts/`](artifacts/). The full file map is described in the [submission report](docs/SUBMISSION_REPORT.md).
 
+### Current repository map
+
+```text
+.cursor/
+  agents/adversarial-reviewer.md
+  hooks.json
+  mcp.json
+  rules/agent.mdc
+.github/
+  copilot-instructions.md
+artifacts/
+  baseline/comparison.md
+  adversarial_review.md
+  economics_result.json
+  options.md
+  q3_economics_result.json
+  recheck_report.json
+  research_plan.md
+  run_log.jsonl
+  strategy.md
+data/
+  new/README.md
+  new/q3_churn_update.md
+  raw/demo/
+    economics_input.json
+    funnel_metrics.csv
+    market_benchmark.md
+    onboarding_screens.md
+    q3_economics_sensitivity_input.json
+    user_feedback.md
+  source_manifest.json
+docs/
+  DEMO_VIDEO_SCRIPT.md
+  SUBMISSION_REPORT.md
+  en/
+    DEMO_VIDEO_SCRIPT.md
+    SUBMISSION_REPORT.md
+knowledge/
+  research-methods.md
+  source-safety.md
+  strategy-framework.md
+projects/
+  demo/
+    DEMO_CASE_PACK.md
+    README.md
+    brief.md
+schemas/
+  decisions-registry.schema.json
+  evidence.schema.json
+  source-manifest.schema.json
+  workflow-state.schema.json
+scripts/
+  calc_economics.py
+  cost_tracker.py
+  cursor_hook.py
+  ingest_source.py
+  recheck_decisions.py
+  validate_evidence.py
+skills/
+  adversarial-review/SKILL.md
+  data-analysis/SKILL.md
+  decision-followup/SKILL.md
+  intake/SKILL.md
+  research/SKILL.md
+  strategy/SKILL.md
+  synthetic-respondents/SKILL.md
+  ux-multimodal-audit/SKILL.md
+state/
+  decision_log.md
+  decisions_registry.json
+  evidence_graph.json
+  workflow_state.json
+tests/
+  test_tools.py
+AGENTS.md
+CLAUDE.md
+README.md
+README.en.md
+.env.example
+.gitignore
+```
+
+IDE-specific and temporary directories (`.idea/`, `.vscode/`, `__pycache__/`, `.pytest_cache/`) are excluded from publication through [`.gitignore`](.gitignore).
+
 ### MCP and hooks
 
 - [`.cursor/mcp.json`](.cursor/mcp.json) configures the standard Fetch MCP server and approved public domains.
@@ -111,8 +195,9 @@ All scripts use only the Python 3.12 standard library.
 
 ```powershell
 python -m unittest discover -s tests -v
-python scripts/cost_tracker.py compare --scenario-id demo
 ```
+
+The suite currently contains 19 tests. Cost tracker supports `add` and `compare`; the paired-run protocol and measured local demo phase are documented in [`artifacts/baseline/comparison.md`](artifacts/baseline/comparison.md).
 
 ## Resuming work
 
@@ -135,7 +220,11 @@ When a file is added under [`data/new/`](data/new/), either the hook or `recheck
 
 ## Submission documentation
 
+- Unified demo case pack: [`projects/demo/DEMO_CASE_PACK.md`](projects/demo/DEMO_CASE_PACK.md)
+- Baseline comparison: [`artifacts/baseline/comparison.md`](artifacts/baseline/comparison.md)
 - Full architecture and limitation report: [`docs/en/SUBMISSION_REPORT.md`](docs/en/SUBMISSION_REPORT.md)
 - Demo video script under 10 minutes: [`docs/en/DEMO_VIDEO_SCRIPT.md`](docs/en/DEMO_VIDEO_SCRIPT.md)
+- Russian submission report: [`docs/SUBMISSION_REPORT.md`](docs/SUBMISSION_REPORT.md)
+- Russian video script: [`docs/DEMO_VIDEO_SCRIPT.md`](docs/DEMO_VIDEO_SCRIPT.md)
 - Run journal: [`artifacts/run_log.jsonl`](artifacts/run_log.jsonl)
 - Russian version: [README.md](README.md)
