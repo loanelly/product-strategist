@@ -1,3 +1,11 @@
+<img src="img/logo/logo.png" align="right" width="150px">
+
+
+# EntropyShield
+
+**Language:**  <a href="https://github.com/loanelly/EntropyShield/blob/main/README.md"><img src="https://github.com/loanelly/EntropyShield/blob/main/img/Flags/EN1.png" height="21" align="center"/></a> <a href="https://github.com/loanelly/EntropyShield/blob/main/README_RU.md"><img src="https://github.com/loanelly/EntropyShield/blob/main/img/Flags/result.png" height="26" align="center"/></a>
+
+
 **Язык:** Русский | [English](README.en.md)
 
 # Product Strategist — ИИ-агент для решений цифровых продуктов
