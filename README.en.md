@@ -233,3 +233,12 @@ When a file is added under [`data/new/`](data/new/), either the hook or `recheck
 - Russian video script: [`docs/DEMO_VIDEO_SCRIPT.md`](docs/DEMO_VIDEO_SCRIPT.md)
 - Run journal: [`artifacts/run_log.jsonl`](artifacts/run_log.jsonl)
 - Russian version: [README.md](README.md)
+
+
+---
+
+<div align="center">
+  <p>🛠️ <b><a href="https://github.com/LNL-Engineering">LNL-Engineering</a></b> — <i>Building secure architectures through physical entropy.</i></p>
+  <p>📬 <b>Personal Profiles:
+  </b> <a href="https://github.com/loanelly">@loanelly</a></b> <a href="https://github.com/artdengpo">@artdengpo</a></p>
+</div>
