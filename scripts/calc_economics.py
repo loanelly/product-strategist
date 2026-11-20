@@ -7,7 +7,7 @@ import argparse
 import json
 import re
 import sys
-from decimal import Decimal, InvalidOperation
+from decimal import Decimal, InvalidOperation, ROUND_CEILING
 from pathlib import Path
 from typing import Any
 
@@ -38,6 +38,9 @@ def object_field(data: dict[str, Any], key: str) -> dict[str, Any]:
 
 
 def calculate(data: dict[str, Any]) -> dict[str, Any]:
+    if data.get("mode") == "plan_year_profit_threshold":
+        return calculate_plan_year_threshold(data)
+
     if data.get("period") != "month":
         raise InputError("period must be 'month'; all formulas use monthly units")
 
@@ -98,6 +101,57 @@ def calculate(data: dict[str, Any]) -> dict[str, Any]:
             "Monthly retention is a constant cohort survival rate.",
             "LTV is undiscounted and excludes costs beyond gross margin.",
             "CAC uses the supplied acquisition spend and acquired-customer count.",
+        ],
+    }
+
+
+def calculate_plan_year_threshold(data: dict[str, Any]) -> dict[str, Any]:
+    currency = data.get("currency")
+    if not isinstance(currency, str) or not CURRENCY.fullmatch(currency):
+        raise InputError("currency must be a three-letter uppercase currency code")
+
+    def annual_amount(field: str) -> Decimal:
+        value = object_field(data, field)
+        if value.get("currency") != currency or value.get("period") != "year":
+            raise InputError(f"{field} currency and period must match the plan year")
+        amount = number(value.get("value"), f"{field}.value")
+        if amount < 0:
+            raise InputError(f"{field}.value cannot be negative")
+        return amount
+
+    baseline = annual_amount("baseline_gross_profit")
+    target = annual_amount("target_gross_profit")
+    contribution = object_field(data, "incremental_paid_month_contribution")
+    if contribution.get("currency") != currency:
+        raise InputError("incremental contribution currency must match")
+    if contribution.get("unit") != "gross_profit_per_paid_month":
+        raise InputError(
+            "incremental contribution unit must be 'gross_profit_per_paid_month'"
+        )
+    contribution_value = number(contribution.get("value"), "incremental contribution.value")
+    if contribution_value <= 0:
+        raise InputError("incremental contribution.value must be greater than zero")
+
+    gap = max(Decimal(0), target - baseline)
+    paid_months = (gap / contribution_value).to_integral_value(rounding=ROUND_CEILING)
+    return {
+        "mode": "plan_year_profit_threshold",
+        "currency": currency,
+        "period": "year",
+        "baseline_gross_profit": float(baseline),
+        "target_gross_profit": float(target),
+        "gross_profit_gap": float(gap),
+        "gross_profit_per_incremental_paid_month": float(contribution_value),
+        "minimum_incremental_paid_months_before_new_direct_costs": int(paid_months),
+        "threshold_formula": (
+            "ceil((target_gross_profit - baseline_gross_profit + "
+            "incremental_direct_costs) / gross_profit_per_incremental_paid_month)"
+        ),
+        "limitations": [
+            "This is a break-even threshold, not a forecast.",
+            "New direct costs are not supplied and must be added to the numerator.",
+            "Paid-month increments must be measured against the unchanged-service baseline.",
+            "No LTV, CAC, retention, development-cost payback, or cannibalization is inferred.",
         ],
     }
 

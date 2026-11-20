@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "decisions": [
+    {
+      "id": "MEGAFON-D-001",
+      "decision": "Proposal only: conditionally prioritize a family-group low-balance alert pilot after Q1 data, consent, tariff, technical-readiness, sample-size, staffing, and economics gates pass.",
+      "status": "review_required",
+      "claim_ids": [
+        "MEGAFON-H-001",
+        "MEGAFON-H-002",
+        "MEGAFON-H-004",
+        "MEGAFON-H-005",
+        "MEGAFON-H-006",
+        "MEGAFON-F-017"
+      ],
+      "source_ids": [
+        "MEGAFON-BRIEF",
+        "MEGAFON-Q1-PILOT-INTERIM-TEST"
+      ],
+      "watch_terms": [],
+      "owner": "product_lead (role specified by user; individual not named)",
+      "kpi": "Primary: randomized family groups with at least one participating number restricted for data exhaustion within 7 days of first eligible low-balance event; thresholds not yet approved. Guardrails: consent/access defects, stale/false alerts, duplicate actions, harm to another group member, complaints and support contacts.",
+      "deadline": "End of Q1 for pilot go/no-go; end of Q2 for scale/iterate/continue/stop decision. Calendar year and exact dates not provided.",
+      "review_triggers": [
+        "The stage-8 synthetic fixture declares a workflow test only; verify the match but do not treat it as real pilot evidence.",
+        "A validated Q1 result changes the estimated effect, event rate, safety, sample feasibility, direct costs, or segment priority.",
+        "Any unauthorized access after consent withdrawal, duplicate operation, or material harm to another group member."
+      ],
+      "review_reasons": [
+        "incoming material declares related source id(s): MEGAFON-Q1-PILOT-INTERIM-TEST"
+      ]
+    }
+  ],
+  "processed_files": {
+    "megafon_q1_pilot_interim.md": {
+      "path": "megafon_q1_pilot_interim.md",
+      "sha256": "89a55a1876e01a6818257596ad0c89cb6a11597673910200ad84cc53bc69fb46"
+    },
+    "q3_churn_update.md": {
+      "path": "q3_churn_update.md",
+      "sha256": "947c68fcb619f812199d2d108c89f568826243ad93eb72ce39b86806b1e23673"
+    }
+  }
+}

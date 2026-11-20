@@ -1,0 +1,17 @@
+{
+  "mode": "plan_year_profit_threshold",
+  "currency": "RUB",
+  "period": "year",
+  "baseline_gross_profit": 279000000.0,
+  "target_gross_profit": 285000000.0,
+  "gross_profit_gap": 6000000.0,
+  "gross_profit_per_incremental_paid_month": 500.0,
+  "minimum_incremental_paid_months_before_new_direct_costs": 12000,
+  "threshold_formula": "ceil((target_gross_profit - baseline_gross_profit + incremental_direct_costs) / gross_profit_per_incremental_paid_month)",
+  "limitations": [
+    "This is a break-even threshold, not a forecast.",
+    "New direct costs are not supplied and must be added to the numerator.",
+    "Paid-month increments must be measured against the unchanged-service baseline.",
+    "No LTV, CAC, retention, development-cost payback, or cannibalization is inferred."
+  ]
+}

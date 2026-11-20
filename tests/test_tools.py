@@ -110,6 +110,83 @@ class EconomicsTests(unittest.TestCase):
         self.assertEqual(result["cac"], 1000.0)
         self.assertLess(result["ltv"], result["cac"])
 
+    def test_plan_year_threshold_from_paid_month_contribution(self) -> None:
+        result = calc_economics.calculate(
+            {
+                "mode": "plan_year_profit_threshold",
+                "currency": "RUB",
+                "baseline_gross_profit": {
+                    "value": 279000000,
+                    "currency": "RUB",
+                    "period": "year",
+                },
+                "target_gross_profit": {
+                    "value": 285000000,
+                    "currency": "RUB",
+                    "period": "year",
+                },
+                "incremental_paid_month_contribution": {
+                    "value": 500,
+                    "currency": "RUB",
+                    "unit": "gross_profit_per_paid_month",
+                },
+            }
+        )
+        self.assertEqual(result["gross_profit_gap"], 6000000.0)
+        self.assertEqual(
+            result["minimum_incremental_paid_months_before_new_direct_costs"],
+            12000,
+        )
+
+    def test_plan_year_threshold_rounds_paid_months_up(self) -> None:
+        data = {
+            "mode": "plan_year_profit_threshold",
+            "currency": "RUB",
+            "baseline_gross_profit": {
+                "value": 279999999,
+                "currency": "RUB",
+                "period": "year",
+            },
+            "target_gross_profit": {
+                "value": 285000000,
+                "currency": "RUB",
+                "period": "year",
+            },
+            "incremental_paid_month_contribution": {
+                "value": 500,
+                "currency": "RUB",
+                "unit": "gross_profit_per_paid_month",
+            },
+        }
+        result = calc_economics.calculate(data)
+        self.assertEqual(
+            result["minimum_incremental_paid_months_before_new_direct_costs"],
+            10001,
+        )
+
+    def test_plan_year_threshold_rejects_mismatched_units(self) -> None:
+        data = {
+            "mode": "plan_year_profit_threshold",
+            "currency": "RUB",
+            "baseline_gross_profit": {
+                "value": 279000000,
+                "currency": "RUB",
+                "period": "year",
+            },
+            "target_gross_profit": {
+                "value": 285000000,
+                "currency": "RUB",
+                "period": "year",
+            },
+            "incremental_paid_month_contribution": {
+                "value": 500,
+                "currency": "RUB",
+                "unit": "monthly_arpu",
+            },
+        }
+        with self.assertRaisesRegex(calc_economics.InputError, "unit must be"):
+            calc_economics.calculate(data)
+
 
 class CostTrackerTests(unittest.TestCase):
     def test_comparison_reports_cost_time_and_coverage(self) -> None:

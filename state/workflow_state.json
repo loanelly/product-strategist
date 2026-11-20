@@ -1,67 +1,113 @@
 {
   "version": 1,
-  "project_id": "demo",
+  "project_id": "megafon-demo",
   "stage": 8,
   "status": "paused",
-  "next_action": "A human decision owner must review the synthetic Q3 retention counterexample and approve any real follow-up; no production action is authorized.",
+  "next_action": "product_lead must review the conditional segment gate, remaining evidence gaps, and proposal status; the synthetic stage-8 fixture is not pilot evidence or approval to launch.",
   "completed_actions": [
     {
-      "id": "demo-brief",
-      "result": "Created a fictional brief with explicit data boundaries.",
+      "id": "megafon-brief",
+      "result": "Created the separately scoped fictional-operator brief; user-authorized source preserved and registered through ingest_source.py.",
       "input_hashes": {
-        "projects/demo/brief.md": "13296d0e9750ef56254bd729239862d8e671854d1e31b584c58cc7e5fbac89db",
-        "data/source_manifest.json": "7166de2d314fecaa2010697d289ca4da97089f84bdca85a434ffe8303ff69824",
-        "state/evidence_graph.json": "10525f2398e818290ee7fcb944b21b38182d37939939ac31b3490ea8dae8ded7",
-        "artifacts/options.md": "ebe3a5d924c92637f7c76594894291fc466a1e7ac48358c1aa5b8ab57707468b",
-        "artifacts/strategy.md": "7cc17efeae9df72d49ad0041f34a3ab4248dac45835d584aa6c87d4a65e00e91",
-        "data/new/q3_churn_update.md": "947c68fcb619f812199d2d108c89f568826243ad93eb72ce39b86806b1e23673"
+        "projects/megafon-demo/brief.md": "d3aed49c6c231177dab3d7a78e75cc54e4dc7b619dca6202a4914cad467905b9",
+        "projects/megafon-demo/sources/MEGAFON_BRIEF.pdf": "558d2c665caa4f4954135c8bbfb69d791e398dcdc5b625d5ded7bdb2d0eb0fa5",
+        "projects/megafon-demo/sources/MEGAFON_BRIEF_EXTRACTED.txt": "2c5e4580f86abc14d1cedfef5079d71f6aa40a8ea96f7b0da14c26282b46ab5a",
+        "projects/megafon-demo/sources/MEGAFON_BRIEF_INGESTED.json": "a9bb7cec32883b97cdbf345790d77180ec9cec70406148dc4c52b24b43e56456"
       }
     },
     {
-      "id": "demo-evidence",
-      "result": "Built and validated a source-linked graph from synthetic data and public Eurostat context.",
+      "id": "megafon-inventory",
+      "result": "Added the authorized brief and project provenance to the source manifest and evidence graph.",
       "input_hashes": {
-        "projects/demo/brief.md": "13296d0e9750ef56254bd729239862d8e671854d1e31b584c58cc7e5fbac89db",
-        "data/source_manifest.json": "7166de2d314fecaa2010697d289ca4da97089f84bdca85a434ffe8303ff69824",
-        "state/evidence_graph.json": "10525f2398e818290ee7fcb944b21b38182d37939939ac31b3490ea8dae8ded7",
-        "artifacts/options.md": "ebe3a5d924c92637f7c76594894291fc466a1e7ac48358c1aa5b8ab57707468b",
-        "artifacts/strategy.md": "7cc17efeae9df72d49ad0041f34a3ab4248dac45835d584aa6c87d4a65e00e91",
-        "data/new/q3_churn_update.md": "947c68fcb619f812199d2d108c89f568826243ad93eb72ce39b86806b1e23673"
+        "data/source_manifest.json": "dae09717bf758d471c24bec2ef1975b9abb469e17f6917c22d6955e43395d493",
+        "state/evidence_graph.json": "e705e9ca9d644e9c36f581cb6379750fac4ee0fa7ade42d19639fcacfc017bc8"
       }
     },
     {
-      "id": "demo-strategy",
-      "result": "Prepared options, a conditional strategy, and an isolated adversarial critique.",
+      "id": "megafon-research-plan",
+      "result": "Ranked decision-changing questions, disconfirming tests, data gaps, and stopping rules.",
       "input_hashes": {
-        "projects/demo/brief.md": "13296d0e9750ef56254bd729239862d8e671854d1e31b584c58cc7e5fbac89db",
-        "data/source_manifest.json": "7166de2d314fecaa2010697d289ca4da97089f84bdca85a434ffe8303ff69824",
-        "state/evidence_graph.json": "10525f2398e818290ee7fcb944b21b38182d37939939ac31b3490ea8dae8ded7",
-        "artifacts/options.md": "ebe3a5d924c92637f7c76594894291fc466a1e7ac48358c1aa5b8ab57707468b",
-        "artifacts/strategy.md": "7cc17efeae9df72d49ad0041f34a3ab4248dac45835d584aa6c87d4a65e00e91",
-        "data/new/q3_churn_update.md": "947c68fcb619f812199d2d108c89f568826243ad93eb72ce39b86806b1e23673"
+        "projects/megafon-demo/research_plan.md": "397749f86a9313c686d0fb944b562e633484ed72a241f74d0f5c9ccda5231fdf"
       }
     },
     {
-      "id": "demo-recheck",
-      "result": "New synthetic Q3 update flagged DEMO-D-001 as review_required.",
+      "id": "megafon-evidence",
+      "result": "Built source-linked facts, hypotheses, and forecasts; strategy evidence validation passed.",
       "input_hashes": {
-        "projects/demo/brief.md": "13296d0e9750ef56254bd729239862d8e671854d1e31b584c58cc7e5fbac89db",
-        "data/source_manifest.json": "7166de2d314fecaa2010697d289ca4da97089f84bdca85a434ffe8303ff69824",
-        "state/evidence_graph.json": "10525f2398e818290ee7fcb944b21b38182d37939939ac31b3490ea8dae8ded7",
-        "artifacts/options.md": "ebe3a5d924c92637f7c76594894291fc466a1e7ac48358c1aa5b8ab57707468b",
-        "artifacts/strategy.md": "7cc17efeae9df72d49ad0041f34a3ab4248dac45835d584aa6c87d4a65e00e91",
-        "data/new/q3_churn_update.md": "947c68fcb619f812199d2d108c89f568826243ad93eb72ce39b86806b1e23673"
+        "data/source_manifest.json": "dae09717bf758d471c24bec2ef1975b9abb469e17f6917c22d6955e43395d493",
+        "state/evidence_graph.json": "e705e9ca9d644e9c36f581cb6379750fac4ee0fa7ade42d19639fcacfc017bc8"
+      }
+    },
+    {
+      "id": "megafon-options",
+      "result": "Compared keep-as-is, family alert, own-number reminder, and close-direction options.",
+      "input_hashes": {
+        "projects/megafon-demo/options.md": "bfe52f10e2d2d1a4e31ef5a3f4dd77d04472a973ba474489c03e3868efa32da1"
+      }
+    },
+    {
+      "id": "megafon-strategy",
+      "result": "Prepared five-part pack and calculated the educational break-even threshold; unknown business inputs remain explicit.",
+      "input_hashes": {
+        "projects/megafon-demo/strategy.md": "595fb295258612db10db07076ea7715e6d167ed8a36f4a1e04ca1aae370f2518",
+        "projects/megafon-demo/MEGAFON_STRATEGY_PACK.md": "9d25da174d3c8ef4727cfa3e087b2fbf1304e4940b56c4210ca6a49ee4bf923b",
+        "projects/megafon-demo/economics_input.json": "f5f8982df989d3cd8a0e277ccde66e5370b8d9e90e81b02c7599d009ded167f4",
+        "projects/megafon-demo/economics_result.json": "2b80ef3960d39f48109a51cfea17c588897be1575a8ae7d7787eda01c0c797c5",
+        "scripts/calc_economics.py": "5a3f96acaeecdce8a90719b7a02527e6029b0819a6866fcccb439749907cc6fc"
+      }
+    },
+    {
+      "id": "megafon-adversarial-review",
+      "result": "Isolated reviewer returned eight material objections; addressed by making segment choice conditional and adding readiness, design, safety, and cost gates.",
+      "input_hashes": {
+        "projects/megafon-demo/adversarial_review.md": "4fe4279f3ea77223b992066cd5b75465313529e275489b5c837d8f69ad0e5bcb"
+      }
+    },
+    {
+      "id": "megafon-stage8-recheck",
+      "result": "The synthetic interim fixture matched the project source ID and marked the proposal review_required; no real pilot evidence was created.",
+      "input_hashes": {
+        "data/new/megafon_q1_pilot_interim.md": "89a55a1876e01a6818257596ad0c89cb6a11597673910200ad84cc53bc69fb46",
+        "projects/megafon-demo/state/decisions_registry.json": "304fa7f85fa652ee3d71e7921d86c97b72b4bac5e41b952c51e58a2573ae5b02",
+        "projects/megafon-demo/state/decision_log.md": "5d35648012e5aa6c0aba3a0cb45bf18843f9804fe59f6f0c51709d280edf0711"
+      }
+    },
+    {
+      "id": "megafon-submission",
+      "result": "Updated README link and jury report, regenerated DOCX/PDF with five visible screenshot placeholders, and passed all 22 tests.",
+      "input_hashes": {
+        "README.md": "339f1985e7396c32ffa77d1112540a47c023d94a6a8d4cee44af8c18fcb5ae98",
+        "docs/SUBMISSION_REPORT_READY.md": "9495cc9fe55ca4a9c56ceafb8710a5bee91d49b814c931687cf122acf9a53e51",
+        "docs/SUBMISSION_REPORT_READY.docx": "59b6970a4588797637ccf2f4c099b9f9e73849b01aff6bb13da83f1ca052079a",
+        "docs/SUBMISSION_REPORT_READY.pdf": "b94b235b8a124e719a20bc9585e8aeae285cda008ac4f7b9c2c48e7d3c977394",
+        "tests/test_tools.py": "5c39e662af2c1bcddf2282296fa585dc48107b18986525529af75300cf95f600"
       }
     }
   ],
-  "pending_human_approval": "Review the triggered synthetic decision recheck. Confirm that this is a demo only; separately authorize any real research or experiment.",
+  "pending_human_approval": "A real product_lead must choose whether to authorize Q1 diagnostic/pilot work, approve metrics and thresholds, and decide any subsequent launch or scale. No product decision has been adopted.",
   "input_hashes": {
-    "projects/demo/brief.md": "13296d0e9750ef56254bd729239862d8e671854d1e31b584c58cc7e5fbac89db",
-    "data/source_manifest.json": "7166de2d314fecaa2010697d289ca4da97089f84bdca85a434ffe8303ff69824",
-    "state/evidence_graph.json": "10525f2398e818290ee7fcb944b21b38182d37939939ac31b3490ea8dae8ded7",
-    "artifacts/options.md": "ebe3a5d924c92637f7c76594894291fc466a1e7ac48358c1aa5b8ab57707468b",
-    "artifacts/strategy.md": "7cc17efeae9df72d49ad0041f34a3ab4248dac45835d584aa6c87d4a65e00e91",
-    "data/new/q3_churn_update.md": "947c68fcb619f812199d2d108c89f568826243ad93eb72ce39b86806b1e23673"
+    "projects/megafon-demo/brief.md": "d3aed49c6c231177dab3d7a78e75cc54e4dc7b619dca6202a4914cad467905b9",
+    "projects/megafon-demo/sources/MEGAFON_BRIEF.pdf": "558d2c665caa4f4954135c8bbfb69d791e398dcdc5b625d5ded7bdb2d0eb0fa5",
+    "projects/megafon-demo/sources/MEGAFON_BRIEF_EXTRACTED.txt": "2c5e4580f86abc14d1cedfef5079d71f6aa40a8ea96f7b0da14c26282b46ab5a",
+    "projects/megafon-demo/sources/MEGAFON_BRIEF_INGESTED.json": "a9bb7cec32883b97cdbf345790d77180ec9cec70406148dc4c52b24b43e56456",
+    "data/source_manifest.json": "dae09717bf758d471c24bec2ef1975b9abb469e17f6917c22d6955e43395d493",
+    "state/evidence_graph.json": "e705e9ca9d644e9c36f581cb6379750fac4ee0fa7ade42d19639fcacfc017bc8",
+    "projects/megafon-demo/research_plan.md": "397749f86a9313c686d0fb944b562e633484ed72a241f74d0f5c9ccda5231fdf",
+    "projects/megafon-demo/options.md": "bfe52f10e2d2d1a4e31ef5a3f4dd77d04472a973ba474489c03e3868efa32da1",
+    "projects/megafon-demo/strategy.md": "595fb295258612db10db07076ea7715e6d167ed8a36f4a1e04ca1aae370f2518",
+    "projects/megafon-demo/MEGAFON_STRATEGY_PACK.md": "9d25da174d3c8ef4727cfa3e087b2fbf1304e4940b56c4210ca6a49ee4bf923b",
+    "projects/megafon-demo/economics_input.json": "f5f8982df989d3cd8a0e277ccde66e5370b8d9e90e81b02c7599d009ded167f4",
+    "projects/megafon-demo/economics_result.json": "2b80ef3960d39f48109a51cfea17c588897be1575a8ae7d7787eda01c0c797c5",
+    "scripts/calc_economics.py": "5a3f96acaeecdce8a90719b7a02527e6029b0819a6866fcccb439749907cc6fc",
+    "projects/megafon-demo/adversarial_review.md": "4fe4279f3ea77223b992066cd5b75465313529e275489b5c837d8f69ad0e5bcb",
+    "data/new/megafon_q1_pilot_interim.md": "89a55a1876e01a6818257596ad0c89cb6a11597673910200ad84cc53bc69fb46",
+    "projects/megafon-demo/state/decisions_registry.json": "304fa7f85fa652ee3d71e7921d86c97b72b4bac5e41b952c51e58a2573ae5b02",
+    "projects/megafon-demo/state/decision_log.md": "5d35648012e5aa6c0aba3a0cb45bf18843f9804fe59f6f0c51709d280edf0711",
+    "README.md": "339f1985e7396c32ffa77d1112540a47c023d94a6a8d4cee44af8c18fcb5ae98",
+    "docs/SUBMISSION_REPORT_READY.md": "9495cc9fe55ca4a9c56ceafb8710a5bee91d49b814c931687cf122acf9a53e51",
+    "docs/SUBMISSION_REPORT_READY.docx": "59b6970a4588797637ccf2f4c099b9f9e73849b01aff6bb13da83f1ca052079a",
+    "docs/SUBMISSION_REPORT_READY.pdf": "b94b235b8a124e719a20bc9585e8aeae285cda008ac4f7b9c2c48e7d3c977394",
+    "tests/test_tools.py": "5c39e662af2c1bcddf2282296fa585dc48107b18986525529af75300cf95f600"
   },
-  "updated_at": "2026-11-18T18:45:00+03:00"
+  "updated_at": "2026-11-20T19:19:58+03:00"
 }

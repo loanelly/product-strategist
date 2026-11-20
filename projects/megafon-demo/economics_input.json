@@ -1,0 +1,19 @@
+{
+  "mode": "plan_year_profit_threshold",
+  "currency": "RUB",
+  "baseline_gross_profit": {
+    "value": 279000000,
+    "currency": "RUB",
+    "period": "year"
+  },
+  "target_gross_profit": {
+    "value": 285000000,
+    "currency": "RUB",
+    "period": "year"
+  },
+  "incremental_paid_month_contribution": {
+    "value": 500,
+    "currency": "RUB",
+    "unit": "gross_profit_per_paid_month"
+  }
+}

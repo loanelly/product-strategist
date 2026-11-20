@@ -97,6 +97,50 @@
       "accessed_at": "2026-11-18",
       "title": "Individuals - use of cloud services (2014-2020)",
       "notes": "Old survey data; not comparable to trial conversion or Russian paid demand."
+    },
+    {
+      "id": "MEGAFON-BRIEF",
+      "kind": "document",
+      "locator": "projects/megafon-demo/sources/MEGAFON_BRIEF.pdf",
+      "accessed_at": "2026-11-20",
+      "title": "Связь для близких и собственных устройств — открытый учебный бриф",
+      "content_hash": "558d2c665caa4f4954135c8bbfb69d791e398dcdc5b625d5ded7bdb2d0eb0fa5",
+      "notes": "Пользователь подтвердил публичный учебный статус и право хранения. Описывает вымышленного оператора; все значения учебные. UTF-8 извлечение и untrusted package находятся рядом; SHA256 извлечённого текста: 2c5e4580f86abc14d1cedfef5079d71f6aa40a8ea96f7b0da14c26282b46ab5a."
+    },
+    {
+      "id": "MEGAFON-ECONOMICS-INPUT",
+      "kind": "document",
+      "locator": "projects/megafon-demo/economics_input.json",
+      "accessed_at": "2026-11-20",
+      "title": "Учебный пороговый расчёт разрыва валовой прибыли",
+      "content_hash": "f5f8982df989d3cd8a0e277ccde66e5370b8d9e90e81b02c7599d009ded167f4",
+      "notes": "Вход использует только показатели исходного брифа; это порог, не прогноз."
+    },
+    {
+      "id": "MEGAFON-ECONOMICS-RESULT",
+      "kind": "document",
+      "locator": "projects/megafon-demo/economics_result.json",
+      "accessed_at": "2026-11-20",
+      "title": "Расчёт порога дополнительных оплаченных месяцев",
+      "content_hash": "2b80ef3960d39f48109a51cfea17c588897be1575a8ae7d7787eda01c0c797c5",
+      "notes": "Воспроизводимый результат calc_economics.py; новые прямые расходы неизвестны."
+    },
+    {
+      "id": "MEGAFON-USER-SCOPE",
+      "kind": "document",
+      "locator": "projects/megafon-demo/brief.md#Владелец-и-сроки",
+      "accessed_at": "2026-11-20",
+      "title": "Подтверждённая пользователем рамка проекта",
+      "notes": "Прямое указание пользователя: владелец роли product_lead; план на четыре квартала и ориентир на конец третьего года; разрешение пройти контрольные этапы."
+    },
+    {
+      "id": "MEGAFON-Q1-PILOT-INTERIM-TEST",
+      "kind": "document",
+      "locator": "data/new/megafon_q1_pilot_interim.md",
+      "accessed_at": "2026-11-20",
+      "title": "Синтетический тестовый файл для stage-8 recheck",
+      "content_hash": "89a55a1876e01a6818257596ad0c89cb6a11597673910200ad84cc53bc69fb46",
+      "notes": "Явно помечен как искусственный workflow fixture; никаких наблюдений пилота не содержит."
     }
   ],
   "claims": [
@@ -276,6 +320,240 @@
       ],
       "exact_location": "Fictional Screen 2 and Q4 baseline; proposed test design.",
       "notes": "Requires pre-registration, power analysis, and approval; sample count is provisional."
+    },
+    {
+      "id": "MEGAFON-F-001",
+      "text": "The contest brief describes a fictional mobile operator and states that all numerical values are educational.",
+      "type": "fact",
+      "confidence": "high",
+      "source_ids": ["MEGAFON-BRIEF"],
+      "exact_location": "p. 1, heading 'Связь для близких и собственных устройств' and text 'вымышленного мобильного оператора'; p. 3, 'Все числа учебные'.",
+      "notes": "High confidence about the source's framing, not about any real operator."
+    },
+    {
+      "id": "MEGAFON-F-002",
+      "text": "The brief describes family groups sharing a data package and people managing multiple numbers of their own.",
+      "type": "fact",
+      "confidence": "high",
+      "source_ids": ["MEGAFON-BRIEF"],
+      "exact_location": "p. 1, paragraphs 'Семейная группа' and 'Собственные номера и устройства'.",
+      "notes": "These are the two scenario types in the educational brief."
+    },
+    {
+      "id": "MEGAFON-F-003",
+      "text": "The educational market includes 300,000 households and 180,000 owners of multiple numbers, with accessible bases of 100,000 households and 40,000 owners; overlap is excluded from the market count.",
+      "type": "fact",
+      "confidence": "high",
+      "source_ids": ["MEGAFON-BRIEF"],
+      "exact_location": "p. 3, 'Рынок и исходные показатели', opening paragraph.",
+      "notes": "Scenario inputs, not measured market data."
+    },
+    {
+      "id": "MEGAFON-F-004",
+      "text": "The no-change forecast is 8,000 connected family groups at year-end and the educational target is 12,000.",
+      "type": "fact",
+      "confidence": "high",
+      "source_ids": ["MEGAFON-BRIEF"],
+      "exact_location": "p. 3, baseline/plan-year table, row 'Подключённые семейные группы на конец года'; cross-check p. 6, 'Как свести числа'.",
+      "notes": "Targets and forecasts as stated in the brief, not actual results."
+    },
+    {
+      "id": "MEGAFON-F-005",
+      "text": "The no-change forecast is 5,000 active family groups in the last month of the year and the educational target is 8,000.",
+      "type": "fact",
+      "confidence": "high",
+      "source_ids": ["MEGAFON-BRIEF"],
+      "exact_location": "p. 3, baseline/plan-year table, row 'Активные семейные группы за последний месяц года'.",
+      "notes": "The brief defines an active group in the paragraph immediately below the table."
+    },
+    {
+      "id": "MEGAFON-F-006",
+      "text": "The 14-day activation estimate for groups created in the final quarter is 42%, the no-change forecast is 45%, and the educational target is 60%.",
+      "type": "fact",
+      "confidence": "high",
+      "source_ids": ["MEGAFON-BRIEF"],
+      "exact_location": "p. 3, baseline/plan-year table, row 'Группы, активированные за 14 дней'; definition below the table.",
+      "notes": "The source specifies that created groups with unanswered invitations remain in the denominator."
+    },
+    {
+      "id": "MEGAFON-F-007",
+      "text": "The no-change forecast is 1,000 connected owners of multiple numbers at year-end and the educational target is 2,000.",
+      "type": "fact",
+      "confidence": "high",
+      "source_ids": ["MEGAFON-BRIEF"],
+      "exact_location": "p. 3, baseline/plan-year table, row 'Подключённые владельцы нескольких номеров на конец года'.",
+      "notes": "Owners, not SIM cards, are the denominator for this scenario."
+    },
+    {
+      "id": "MEGAFON-F-008",
+      "text": "The plan-year gross-profit estimate is 275 million RUB, the no-change forecast is 279 million RUB, and the educational minimum target is 285 million RUB.",
+      "type": "fact",
+      "confidence": "high",
+      "source_ids": ["MEGAFON-BRIEF"],
+      "exact_location": "p. 3, baseline/plan-year table, row 'Валовая прибыль за год, млн руб.'; p. 9, first paragraph.",
+      "notes": "All values are educational scenario numbers."
+    },
+    {
+      "id": "MEGAFON-F-009",
+      "text": "The brief says a family participant controls access to their number information and may revoke permission; a payer confirms charges from their account, and the organizer, number owner, and payer may differ.",
+      "type": "fact",
+      "confidence": "high",
+      "source_ids": ["MEGAFON-BRIEF"],
+      "exact_location": "p. 1, paragraph beginning 'Организатор приглашает людей в группу'.",
+      "notes": "Permission to view remaining data does not by itself grant access to charges; see p. 5, family journey."
+    },
+    {
+      "id": "MEGAFON-F-010",
+      "text": "The brief states that an organizer can already allocate available shared data when plan terms permit, while battery status requires reliable device-provided data.",
+      "type": "fact",
+      "confidence": "high",
+      "source_ids": ["MEGAFON-BRIEF"],
+      "exact_location": "p. 1, paragraphs 'Семейная группа' and 'Собственные номера и устройства'.",
+      "notes": "Describes the fictional operator's baseline capability, not a real service."
+    },
+    {
+      "id": "MEGAFON-F-011",
+      "text": "The brief lists alternatives including a shared family plan, bank auto-payment, asking a relative directly in chat, the account cabinet, and a device app.",
+      "type": "fact",
+      "confidence": "high",
+      "source_ids": ["MEGAFON-BRIEF"],
+      "exact_location": "p. 5, section 'Объясните, почему клиент выберет этот способ'.",
+      "notes": "Alternatives are presented by the brief; their effectiveness is not measured."
+    },
+    {
+      "id": "MEGAFON-F-012",
+      "text": "The brief recommends randomizing eligible customers where possible, assigning a whole family or owner cluster, retaining non-openers in the analysis, and sizing the sample from event frequency and meaningful effect.",
+      "type": "fact",
+      "confidence": "high",
+      "source_ids": ["MEGAFON-BRIEF"],
+      "exact_location": "p. 8, 'Как провести пробный запуск', paragraphs 'С чем сравнивать', 'Что считать', and 'Хватит ли времени'.",
+      "notes": "The example of 600 groups is illustrative and not a sample-size calculation for this case."
+    },
+    {
+      "id": "MEGAFON-F-013",
+      "text": "The brief provides a 500 RUB gross-profit contribution per additional paid number-month and states that the 6 million RUB gap requires 12,000 such months before new costs.",
+      "type": "fact",
+      "confidence": "high",
+      "source_ids": ["MEGAFON-BRIEF"],
+      "exact_location": "p. 9, 'Как рассчитать прибыль и окупаемость', paragraphs 'Начните с 279 млн руб.' and 'Проверьте границу решения'.",
+      "notes": "Paid-month gains must be incremental against the unchanged-service baseline."
+    },
+    {
+      "id": "MEGAFON-F-014",
+      "text": "The reproducible threshold mode of calc_economics.py returns a 6,000,000 RUB gross-profit gap and 12,000 minimum incremental paid months before new direct costs.",
+      "type": "fact",
+      "confidence": "high",
+      "source_ids": ["MEGAFON-ECONOMICS-INPUT", "MEGAFON-ECONOMICS-RESULT"],
+      "exact_location": "economics_result.json, fields gross_profit_gap and minimum_incremental_paid_months_before_new_direct_costs.",
+      "notes": "Arithmetic threshold only; not a forecast, LTV, CAC, or payback estimate."
+    },
+    {
+      "id": "MEGAFON-F-015",
+      "text": "The brief lists 0.5 FTE each for a designer and analyst as not yet allocated, three developer person-months provisionally for Q2, and one testing person-month not yet confirmed.",
+      "type": "fact",
+      "confidence": "high",
+      "source_ids": ["MEGAFON-BRIEF"],
+      "exact_location": "p. 11, table 'Ресурсы', rows 'Дизайнер и аналитик', 'Разработчики', and 'Специалист по проверке услуги'.",
+      "notes": "Availability and costs are not confirmed."
+    },
+    {
+      "id": "MEGAFON-F-016",
+      "text": "The user set the decision owner role as product_lead, a four-quarter planning horizon, and an orientation at the end of year three.",
+      "type": "fact",
+      "confidence": "high",
+      "source_ids": ["MEGAFON-USER-SCOPE"],
+      "exact_location": "User instruction dated 2026-11-20 19:06 +0300; confirmed in projects/megafon-demo/brief.md under 'Владелец и сроки'.",
+      "notes": "The role is known; no individual is named."
+    },
+    {
+      "id": "MEGAFON-H-001",
+      "text": "For eligible family groups with consent and available shared data, an alert at a validated low-balance event may reduce restrictions caused by data exhaustion within seven days.",
+      "type": "hypothesis",
+      "confidence": "low",
+      "source_ids": ["MEGAFON-BRIEF"],
+      "exact_location": "Derived from p. 1, 'Семейная группа', and p. 7, proposed seven-day customer-benefit metric.",
+      "notes": "Falsified if a sufficiently precise controlled estimate rules out the pre-agreed minimum useful reduction, or if timely actionable balance is unavailable."
+    },
+    {
+      "id": "MEGAFON-H-002",
+      "text": "Family groups may be the better first validation segment than owners of multiple numbers because the brief describes an existing shared-data action and a larger accessible base, but relative incidence and preventability are unknown.",
+      "type": "hypothesis",
+      "confidence": "low",
+      "source_ids": ["MEGAFON-BRIEF"],
+      "exact_location": "p. 1, 'Семейная группа'; p. 3, accessible market counts; p. 4, 'Обоснуйте первый приоритет'.",
+      "notes": "Falsified if the own-number segment has materially greater preventable harm per cost or family incidents are rare/non-actionable."
+    },
+    {
+      "id": "MEGAFON-H-003",
+      "text": "A timely alert that links to an existing permitted action may be a lower-cost first test than building a new family dashboard or automating transfer.",
+      "type": "hypothesis",
+      "confidence": "low",
+      "source_ids": ["MEGAFON-BRIEF"],
+      "exact_location": "p. 5, 'Определите состав первого запуска' and alternatives; p. 7, compare a cabinet with a simpler alert.",
+      "notes": "Falsified if the existing path is unavailable, confusing, unsafe, or yields no useful customer effect."
+    },
+    {
+      "id": "MEGAFON-H-004",
+      "text": "Cluster randomization at the family-group level can estimate the causal effect of the alert on eligible groups if event definitions, consent, outcome access, and sample size are valid.",
+      "type": "hypothesis",
+      "confidence": "low",
+      "source_ids": ["MEGAFON-BRIEF"],
+      "exact_location": "p. 8, 'Кого включать', 'С чем сравнивать', and 'Что считать'.",
+      "notes": "Falsified as decision-ready if cross-group contamination, unequal outcome measurement, or insufficient event flow prevents interpretable comparison."
+    },
+    {
+      "id": "MEGAFON-H-005",
+      "text": "The alert could support the gross-profit target only if it creates measurable incremental paid months or other verified contribution that exceeds incremental operating and development costs.",
+      "type": "hypothesis",
+      "confidence": "low",
+      "source_ids": ["MEGAFON-BRIEF", "MEGAFON-ECONOMICS-RESULT"],
+      "exact_location": "p. 9, retention, support savings, and cost paragraphs; economics_result.json threshold and limitations.",
+      "notes": "Falsified if validated incremental contribution after costs and cannibalization is negative or below the approved hurdle."
+    },
+    {
+      "id": "MEGAFON-H-006",
+      "text": "A safe pilot can launch by the end of Q1 only if the existing notification/data/consent path and staffing are ready; otherwise a Q1 decision should defer or narrow launch.",
+      "type": "hypothesis",
+      "confidence": "low",
+      "source_ids": ["MEGAFON-BRIEF", "MEGAFON-USER-SCOPE"],
+      "exact_location": "p. 11, dependency and staffing sections; user instruction dated 2026-11-20 19:06 +0300 for the Q1 control point.",
+      "notes": "Falsified if the necessary safe path is not available in time; never replace the missing readiness with manual access to customer data."
+    },
+    {
+      "id": "MEGAFON-FC-001",
+      "text": "A goal-aligned plan-year scenario would require reaching the brief's targets; those values are a conditional boundary, not a point forecast from available evidence.",
+      "type": "forecast",
+      "confidence": "low",
+      "source_ids": ["MEGAFON-BRIEF"],
+      "exact_location": "p. 3 target column and p. 6 discussion of the gap versus unchanged service.",
+      "notes": "No channel conversion, churn, or intervention effect is provided to estimate probability of reaching the targets."
+    },
+    {
+      "id": "MEGAFON-FC-002",
+      "text": "For the educational case, every 500 RUB of new direct costs increases the required additional paid-month threshold by one, subject to ceiling rounding.",
+      "type": "forecast",
+      "confidence": "low",
+      "source_ids": ["MEGAFON-ECONOMICS-INPUT", "MEGAFON-ECONOMICS-RESULT"],
+      "exact_location": "economics_result.json threshold_formula; p. 9, 500 RUB per paid-month assumption.",
+      "notes": "Conditional arithmetic; not evidence that any such months or costs will occur."
+    },
+    {
+      "id": "MEGAFON-FC-003",
+      "text": "A provisional end-of-year-three floor could retain at least 12,000 connected and 8,000 active family groups, subject to product_lead approval and revision after year-one cohort and economics data.",
+      "type": "forecast",
+      "confidence": "low",
+      "source_ids": ["MEGAFON-BRIEF", "MEGAFON-USER-SCOPE"],
+      "exact_location": "p. 3 year-one targets and p. 10, 'Для конца третьего года задайте измеримый ориентир'; user horizon instruction dated 2026-11-20.",
+      "notes": "An explicitly proposed planning floor, not an independently validated growth forecast."
+    },
+    {
+      "id": "MEGAFON-F-017",
+      "text": "The Q1 interim file is explicitly labeled a synthetic workflow test fixture and states that it contains no customer observations or pilot results.",
+      "type": "fact",
+      "confidence": "high",
+      "source_ids": ["MEGAFON-Q1-PILOT-INTERIM-TEST"],
+      "exact_location": "data/new/megafon_q1_pilot_interim.md, heading 'SYNTHETIC WORKFLOW TEST FIXTURE — NOT PILOT DATA' and first paragraph.",
+      "notes": "This proves only the declared purpose/content of the fixture, not any real-world interim result."
     }
   ],
   "relations": [

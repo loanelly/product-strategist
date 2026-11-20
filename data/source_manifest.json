@@ -97,6 +97,51 @@
       "accessed_at": "2026-11-18",
       "title": "Individuals - use of cloud services (2014-2020)",
       "notes": "Old survey data; not comparable to trial conversion or Russian paid demand."
+    },
+    {
+      "id": "MEGAFON-BRIEF",
+      "kind": "document",
+      "locator": "projects/megafon-demo/sources/MEGAFON_BRIEF.pdf",
+      "accessed_at": "2026-11-20",
+      "title": "Связь для близких и собственных устройств — открытый учебный бриф",
+      "content_hash": "558d2c665caa4f4954135c8bbfb69d791e398dcdc5b625d5ded7bdb2d0eb0fa5",
+      "notes": "Пользователь подтвердил публичный учебный статус и право хранения. Описывает вымышленного оператора; все числа учебные. UTF-8 текст зарегистрирован через ingest_source.py в MEGAFON_BRIEF_INGESTED.json; SHA256 текста 2c5e4580f86abc14d1cedfef5079d71f6aa40a8ea96f7b0da14c26282b46ab5a."
+    },
+    {
+      "id": "MEGAFON-ECONOMICS-INPUT",
+      "kind": "document",
+      "locator": "projects/megafon-demo/economics_input.json",
+      "accessed_at": "2026-11-20",
+      "title": "Учебный пороговый расчёт разрыва валовой прибыли",
+      "content_hash": "f5f8982df989d3cd8a0e277ccde66e5370b8d9e90e81b02c7599d009ded167f4",
+      "notes": "Производный расчётный вход, использует только показатели исходного брифа."
+    },
+    {
+      "id": "MEGAFON-ECONOMICS-RESULT",
+      "kind": "document",
+      "locator": "projects/megafon-demo/economics_result.json",
+      "accessed_at": "2026-11-20",
+      "title": "Расчёт порога дополнительных оплаченных месяцев",
+      "content_hash": "2b80ef3960d39f48109a51cfea17c588897be1575a8ae7d7787eda01c0c797c5",
+      "notes": "Результат calc_economics.py; это порог до новых прямых расходов, не прогноз."
+    },
+    {
+      "id": "MEGAFON-USER-SCOPE",
+      "kind": "document",
+      "locator": "projects/megafon-demo/brief.md#Владелец-и-сроки",
+      "accessed_at": "2026-11-20",
+      "title": "Подтверждённая пользователем рамка проекта",
+      "content_hash": "a720253edb84a581f3b847a0892112a19bb26ffaf8aeccc1a35d64217f59a71c",
+      "notes": "Владелец product_lead; план на четыре квартала, ориентир на конец третьего года; разрешение пройти контрольные этапы."
+    },
+    {
+      "id": "MEGAFON-Q1-PILOT-INTERIM-TEST",
+      "kind": "document",
+      "locator": "data/new/megafon_q1_pilot_interim.md",
+      "accessed_at": "2026-11-20",
+      "title": "Синтетический тестовый файл для stage-8 recheck",
+      "content_hash": "89a55a1876e01a6818257596ad0c89cb6a11597673910200ad84cc53bc69fb46",
+      "notes": "Только тест триггера; не содержит фактических пилотных данных или свидетельств о продукте."
     }
   ]
 }
