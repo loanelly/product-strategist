@@ -82,6 +82,22 @@
         "docs/SUBMISSION_REPORT_READY.pdf": "b94b235b8a124e719a20bc9585e8aeae285cda008ac4f7b9c2c48e7d3c977394",
         "tests/test_tools.py": "5c39e662af2c1bcddf2282296fa585dc48107b18986525529af75300cf95f600"
       }
+    },
+    {
+      "id": "submission-report-markdown",
+      "result": "Updated Markdown with the five requested screenshot placeholders at the matching sections and corrected the outdated test-count statement; DOCX regeneration is prepared separately but cannot safely replace the report while Word has it open.",
+      "input_hashes": {
+        "docs/SUBMISSION_REPORT_READY.md": "1930e0571c196bce9ff2f6fb32d555e5cbefe4cb479d4abb0233f5d372df2394"
+      }
+    },
+    {
+      "id": "submission-report-format-sync",
+      "result": "Replaced the Word-open report after user confirmed it was closed; DOCX and PDF regenerated from the updated Markdown with five exact, bold, spaced screenshot placeholders and clean link labels.",
+      "input_hashes": {
+        "docs/SUBMISSION_REPORT_READY.md": "1930e0571c196bce9ff2f6fb32d555e5cbefe4cb479d4abb0233f5d372df2394",
+        "docs/SUBMISSION_REPORT_READY.docx": "2e0e1c9f5b3dfd54ace834132771dde5d3dd4f997601c9e8f5c7724f1248149c",
+        "docs/SUBMISSION_REPORT_READY.pdf": "be924aec13de9bc7245a240facaac023544fb6c3f10895fbd43ed592f78891b1"
+      }
     }
   ],
   "pending_human_approval": "A real product_lead must choose whether to authorize Q1 diagnostic/pilot work, approve metrics and thresholds, and decide any subsequent launch or scale. No product decision has been adopted.",
@@ -104,9 +120,9 @@
     "projects/megafon-demo/state/decisions_registry.json": "304fa7f85fa652ee3d71e7921d86c97b72b4bac5e41b952c51e58a2573ae5b02",
     "projects/megafon-demo/state/decision_log.md": "5d35648012e5aa6c0aba3a0cb45bf18843f9804fe59f6f0c51709d280edf0711",
     "README.md": "339f1985e7396c32ffa77d1112540a47c023d94a6a8d4cee44af8c18fcb5ae98",
-    "docs/SUBMISSION_REPORT_READY.md": "9495cc9fe55ca4a9c56ceafb8710a5bee91d49b814c931687cf122acf9a53e51",
-    "docs/SUBMISSION_REPORT_READY.docx": "59b6970a4588797637ccf2f4c099b9f9e73849b01aff6bb13da83f1ca052079a",
-    "docs/SUBMISSION_REPORT_READY.pdf": "b94b235b8a124e719a20bc9585e8aeae285cda008ac4f7b9c2c48e7d3c977394",
+    "docs/SUBMISSION_REPORT_READY.md": "1930e0571c196bce9ff2f6fb32d555e5cbefe4cb479d4abb0233f5d372df2394",
+    "docs/SUBMISSION_REPORT_READY.docx": "2e0e1c9f5b3dfd54ace834132771dde5d3dd4f997601c9e8f5c7724f1248149c",
+    "docs/SUBMISSION_REPORT_READY.pdf": "be924aec13de9bc7245a240facaac023544fb6c3f10895fbd43ed592f78891b1",
     "tests/test_tools.py": "5c39e662af2c1bcddf2282296fa585dc48107b18986525529af75300cf95f600"
   },
   "updated_at": "2026-11-20T19:19:58+03:00"
